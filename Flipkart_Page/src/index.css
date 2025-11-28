@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+
+.animate-heartbeat {
+  animation: heartbeat 1.8s ease-in-out infinite;
+   animation-duration: 5s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards; 
+}
+
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.08);
+  }
+  40% {
+    transform: scale(0.98);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-popup {
+  animation: popup 1.2s ease-in-out infinite;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
