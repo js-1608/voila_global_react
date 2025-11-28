@@ -1,1 +1,2 @@
-# voila_global_react
+# React + Vite
+need to remove slick slider 

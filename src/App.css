@@ -1,0 +1,79 @@
+.puple_gradient {
+    background: linear-gradient(180deg, #662D91 0%, #1E0D2B 100%);
+}
+
+.light_text {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 110%;
+}
+
+.text_heading {
+    font-weight: 300;
+    font-style: Light;
+    font-size: 50px;
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+.shadow_logo {
+    box-shadow: 5.42px 5.42px 10.85px 0px #00000040 inset;
+
+}
+
+.service_heading {
+    font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #333333;
+
+
+}
+
+.banner_Text {
+    font-family: Poppins;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 44px;
+    /* line-height: 48px; */
+    letter-spacing: 0px;
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slideInUp {
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+
+
