@@ -9,7 +9,7 @@ import {
   LayoutPanelLeft,
 } from "lucide-react";
 import heroImg from "../assets/flipkart-hero.png"; //  import hero image
-import flipkartIllustration from "../assets/flipkart-opportunities.png"; 
+import flipkartIllustration from "../assets/flipkart-opportunities.png";
 
 // const [activeIndex, setActiveIndex] = useState(0);
 const items = [
@@ -264,124 +264,124 @@ const WhatYouGet = () => {
         </div>
       </section>
 
-{/* -------- WHY CHOOSE US SECTION – TILE LAYOUT -------- */}
-<section className="bg-slate-50 py-16">
-  <div className="max-w-6xl mx-auto px-4">
-    {/* Heading */}
-    <div className="text-center max-w-3xl mx-auto mb-10">
-      <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-amber-500 animate-popup">
-        Why choose us
-      </p>
+      {/* -------- WHY CHOOSE US SECTION – TILE LAYOUT -------- */}
+      <section className="bg-slate-50 py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          {/* Heading */}
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-amber-500 animate-popup">
+              Why choose us
+            </p>
 
-      <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900">
-        Why Choose Us for your{" "}
-        <span className="text-violet-700">Flipkart Seller Account</span>{" "}
-        Management
-      </h2>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900">
+              Why Choose Us for your{" "}
+              <span className="text-violet-700">Flipkart Seller Account</span>{" "}
+              Management
+            </h2>
 
-      <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-        Our team brings together experience, process and data so your Flipkart
-        account runs like a well-oiled growth machine instead of daily guesswork.
-      </p>
-    </div>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+              Our team brings together experience, process and data so your Flipkart
+              account runs like a well-oiled growth machine instead of daily guesswork.
+            </p>
+          </div>
 
-    {/* TILES */}
-    <div className="grid gap-4 md:grid-cols-3 auto-rows-[minmax(140px,1fr)]">
-      {/* Big primary tile (first reason) */}
-      <div className="md:col-span-2 md:row-span-2 rounded-3xl bg-linear-to-br from-violet-600 to-purple-700 text-white p-6 flex flex-col justify-between shadow-lg">
-        <div className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-xs font-semibold">
-            01
-          </span>
-          <h3 className="text-xl lg:text-4xl  font-semibold">
-            {reasons[0].title}
-          </h3>
-        </div>
-        <p className="mt-4 text-lg lg:text-xl text-black-50 leading-relaxed">
-          {reasons[0].desc}
-        </p>
-        <div className="mt-4 h-[3px] w-24 rounded-full bg-linear-to-r from-amber-300 to-white animate-heartbeat" />
-      </div>
+          {/* TILES */}
+          <div className="grid gap-4 md:grid-cols-3 auto-rows-[minmax(140px,1fr)]">
+            {/* Big primary tile (first reason) */}
+            <div className="md:col-span-2 md:row-span-2 rounded-3xl bg-linear-to-br from-violet-600 to-purple-700 text-white p-6 flex flex-col justify-between shadow-lg">
+              <div className="flex items-center gap-3">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-xs font-semibold">
+                  01
+                </span>
+                <h3 className="text-xl lg:text-4xl  font-semibold">
+                  {reasons[0].title}
+                </h3>
+              </div>
+              <p className="mt-4 text-lg lg:text-xl text-black-50 leading-relaxed">
+                {reasons[0].desc}
+              </p>
+              <div className="mt-4 h-[3px] w-24 rounded-full bg-linear-to-r from-amber-300 to-white animate-heartbeat" />
+            </div>
 
-      {/* Smaller tiles for the rest */}
-      {reasons.slice(1).map((reason, index) => (
-        <div
-          key={reason.title}
-          className={`
+            {/* Smaller tiles for the rest */}
+            {reasons.slice(1).map((reason, index) => (
+              <div
+                key={reason.title}
+                className={`
             rounded-3xl bg-yellow-300 p-4 flex flex-col justify-evenly border border-slate-200
             shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl
             ${index % 2 === 0 ? "bg-violet-50/60" : "bg-amber-50/60"}
           `}
-        >
-          <div className="flex items-center justify-between gap-2">
-            <h3 className="text-xl lg:text-md font-semibold text-slate-900">
-              {reason.title}
-            </h3>
-            <span className="text-[11px] font-semibold text-slate-500">
-              0{index + 2}
-            </span>
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="text-xl lg:text-md font-semibold text-slate-900">
+                    {reason.title}
+                  </h3>
+                  <span className="text-[11px] font-semibold text-slate-500">
+                    0{index + 2}
+                  </span>
+                </div>
+                <p className="mt-2 text-lg lg:text-sm text-slate-700 leading-relaxed">
+                  {reason.desc}
+                </p>
+              </div>
+            ))}
           </div>
-          <p className="mt-2 text-lg lg:text-sm text-slate-700 leading-relaxed">
-            {reason.desc}
+        </div>
+      </section>
+
+
+      {/* -------- TAP INTO OPPORTUNITIES – STAGGERED TILES + BG IMAGE -------- */}
+      <section
+        className="relative bg-slate-50 py-16 overflow-hidden"
+        style={{
+          backgroundImage: `url(${flipkartIllustration})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "820px auto",
+          backgroundPosition: "right bottom",
+        }}
+      >
+        {/* light overlay to keep text readable over image */}
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-white via-white/80 to-white/40"></div>
+
+        <div className="relative max-w-6xl mx-auto px-4 lg:px-0">
+          {/* Heading on the left, a bit higher */}
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6 -mt-4">
+            Tap into endless opportunities with{" "}
+            <span className="text-[#2874F0]">Flipkart</span>
+          </h2>
+          <p className="max-w-xl text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+            Flipkart offers reach, tools and insights to grow your brand. These tiles
+            show the key advantages you unlock when you sell with a clear strategy.
           </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
 
+          {/* Staggered / stepped tiles */}
+          <div className="mt-4 flex flex-wrap gap-4 lg:gap-6 max-w-7xl">
+            {opportunities.map((item, idx) => (
+              <div
+                key={item.title}
+                className={
+                  "relative w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-0.75rem)] rounded-2xl bg-white border border-slate-200 p-4 shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:border-violet-200 " +
+                  // push every 2nd tile down slightly on large screens for stepped effect
+                  (idx % 2 === 1 ? "lg:mt-8" : "")
+                }
+              >
+                {/* colored accent bar */}
+                <span className="absolute left-0 top-4 h-8 w-[3px] rounded-full bg-linear-to-b from-amber-400 to-orange-500"></span>
 
-{/* -------- TAP INTO OPPORTUNITIES – STAGGERED TILES + BG IMAGE -------- */}
-<section
-  className="relative bg-slate-50 py-16 overflow-hidden"
-  style={{
-    backgroundImage: `url(${flipkartIllustration})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "820px auto",  
-    backgroundPosition: "right bottom",
-  }}
->
-  {/* light overlay to keep text readable over image */}
-  <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-white via-white/80 to-white/40"></div>
-
-  <div className="relative max-w-6xl mx-auto px-4 lg:px-0">
-    {/* Heading on the left, a bit higher */}
-    <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6 -mt-4">
-      Tap into endless opportunities with{" "}
-      <span className="text-[#2874F0]">Flipkart</span>
-    </h2>
-    <p className="max-w-xl text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
-      Flipkart offers reach, tools and insights to grow your brand. These tiles
-      show the key advantages you unlock when you sell with a clear strategy.
-    </p>
-
-    {/* Staggered / stepped tiles */}
-    <div className="mt-4 flex flex-wrap gap-4 lg:gap-6 max-w-7xl">
-      {opportunities.map((item, idx) => (
-        <div
-          key={item.title}
-          className={
-            "relative w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-0.75rem)] rounded-2xl bg-white border border-slate-200 p-4 shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl hover:border-violet-200 " +
-            // push every 2nd tile down slightly on large screens for stepped effect
-            (idx % 2 === 1 ? "lg:mt-8" : "")
-          }
-        >
-          {/* colored accent bar */}
-          <span className="absolute left-0 top-4 h-8 w-[3px] rounded-full bg-linear-to-b from-amber-400 to-orange-500"></span>
-
-          <div className="pl-3">
-            <h3 className="text-sm sm:text-base font-semibold text-[#1b4fd8]">
-              {item.title}
-            </h3>
-            <p className="mt-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-              {item.desc}
-            </p>
+                <div className="pl-3">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#1b4fd8]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
     </>
   );
