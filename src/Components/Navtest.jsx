@@ -11,9 +11,9 @@ const Navbar = () => {
   // Navigation (includes the mega menu "Our Technology")
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
+    { name: 'Why Us', href: '/about' },
     {
-      name: 'Our Divsions',
+      name: 'Verticals',
       hasDropdown: true,
       isFullWidth: true,
       items: [
