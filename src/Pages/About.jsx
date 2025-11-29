@@ -1,10 +1,6 @@
 import React from 'react';
 import HeroCards from './Test';
 
-// AboutPage.jsx
-// Single-file React component (no TypeScript) styled with Tailwind CSS.
-// Drop this into your React app (e.g. src/components/AboutPage.jsx) and ensure Tailwind is configured.
-
 export default function About() {
     return (
         <>
@@ -100,14 +96,5 @@ export default function About() {
             <HeroCards/>
         </>
 
-    );
-}
-
-function Stat({ label, value }) {
-    return (
-        <div className="text-center">
-            <div className="text-3xl font-bold">{value}</div>
-            <div className="mt-1 text-sm text-gray-500">{label}</div>
-        </div>
     );
 }

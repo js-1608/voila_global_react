@@ -1,8 +1,5 @@
 import React from 'react';
 
-// HeroCards.jsx
-// React (no TypeScript) + Tailwind component that recreates the stacked-card hero shown.
-// Usage: place <HeroCards /> inside a page. Replace image paths with your assets.
 
 export default function HeroCards(){
   return (
