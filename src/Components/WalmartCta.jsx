@@ -73,7 +73,7 @@ export default function ContactFormEmailJS() {
   };
 
   return (
-    <section className="bg-gradient-to-r from-gray-900 to-gray-600 p-2 min-h-[520px]">
+    <section className="bg-gradient-to-r from-blue-900 to-blue-600 p-2 min-h-[520px]">
       <div className="max-w-7xl mx-auto w-full text-center p-2 md:p-6">
         {/* Title */}
         <h2 data-aos="fade-up" className="text-3xl md:text-4xl font-bold text-white mb-1 leading-snug">
