@@ -8,9 +8,9 @@ export default function ContactFormEmailJS() {
   const [status, setStatus] = useState(null); // { type: 'success' | 'error', msg: string }
 
   // load from env (CRA / Vite note below)
- const serviceId = "service_lwsxntn";
-    const templateId = "template_bc019cd";
-    const publicKey = "ScBLQFoxFYyNJqhba";
+  const serviceId = "service_lwsxntn";
+  const templateId = "template_bc019cd";
+  const publicKey = "ScBLQFoxFYyNJqhba";
 
 
   function getCheckedDocuments() {
@@ -74,7 +74,7 @@ export default function ContactFormEmailJS() {
 
   return (
     <section className="bg-[#2A55E5] p-2 min-h-[520px]">
-      <div className="max-w-7xl mx-auto w-full text-center p-2 md:p-6">
+     <div className="max-w-7xl mx-auto w-full text-center p-2 md:p-6">
         {/* Title */}
         <h2 data-aos="fade-up" className="text-3xl md:text-4xl font-bold text-white mb-1 leading-snug">
           Connect Now
@@ -84,10 +84,10 @@ export default function ContactFormEmailJS() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-8">
-        <form ref={formRef} onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-2 lg:p-8">
+        <form ref={formRef} onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-2">
           {/* Right column - documents checklist & note */}
-          <div>
+           <div>
             <div className="rounded-xl border border-blue-200 bg-gradient-to-b from-white to-blue-50 p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-3">
                
@@ -121,6 +121,7 @@ export default function ContactFormEmailJS() {
               </div>
             </div>
           </div>
+
           {/* Left column - inputs */}
           <div>
             <div className="space-y-4">
@@ -191,17 +192,16 @@ export default function ContactFormEmailJS() {
             </div>
           </div>
 
-          
-
           {/* hidden inputs and honeypot */}
           <input type="hidden" name="documents" value="" />
+          <input type="hidden" name="subject" value="Flipkart vriddhi Onboarding" />
           <input type="text" name="website" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
         </form>
 
         {/* status message (below the card) */}
         <div className="mt-6 text-center">
           {status && (
-            <div className={`${status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} inline-block px-4 py-2 rounded`}>
+            <div className={`${status.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} inline-block px-2 py-2 rounded`}>
               {status.msg}
             </div>
           )}
