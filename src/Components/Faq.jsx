@@ -30,9 +30,9 @@ const FAQ = ({faqs}) => {
             >
               <button
                 onClick={() => toggleQuestion(faq.id)}
-                className="w-full p-4 text-left flex items-center justify-between focus:outline-none"
+                className="w-full p-2 lg:p-4 text-left flex items-center justify-between focus:outline-none "
               >
-                <span className={`text-lg font-medium  ml-4 ${
+                <span className={`text-sm lg:text-lg font-medium  ml-4 ${
                   openQuestion === faq.id ? 'text-white' : 'text-gray-800'
                 }`}>
                   {faq.question}
@@ -54,7 +54,7 @@ const FAQ = ({faqs}) => {
               {openQuestion === faq.id && (
                 <div className="px-6 pb-6">
                   <div className="pt-4 border-t border-purple-400">
-                    <p className="text-purple-100 leading-relaxed ml-2">
+                    <p className="text-purple-100 leading-relaxed ml-2 text-sm lg:text-lg">
                       {faq.answer}
                     </p>
                   </div>

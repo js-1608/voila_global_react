@@ -11,8 +11,7 @@ import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { WalmartUsFaq } from "../data/Data";
 import { Link } from "react-router-dom";
 
-import ContactFormEmailJS from "../Components/WalmartCta";
-
+import ContactFormEmailJS from "../Components/ContactForm";
 
 export default function Walmart() {
   const href = `https://wa.me/${+919810554548}?text=${encodeURIComponent('Hi, can I get more information for Walmart onboarding?')}`;
@@ -30,7 +29,7 @@ export default function Walmart() {
     },
     {
       icon: <HandCoins size={36} className="text-blue-600 mx-auto" />,
-      title: "$75000 Worth Savings/Benefits for 1st Year period. ",
+      title: "$75000 Worth Savings Benefits ",
       desc: "30% discount on Commission/referral Fees, 25% discount in Local Fulfilment Fees and 50% discount on Storage Fee ,Free Ad Credits ($1000)",
     },
     {
@@ -45,7 +44,7 @@ export default function Walmart() {
     },
     {
       icon: <UserCheck size={36} className="text-blue-600 mx-auto" />,
-      title: "Expert Guidance ",
+      title: "Expert Guidance With VOILA",
       desc: " You’ll receive expert support from Walmart-trained executives who are committed to successful launch and growth of your business in the U.S. mar",
     },
   ];
@@ -55,9 +54,9 @@ export default function Walmart() {
 
       <header className="bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-1 py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-2">
             {/* Left: Logos */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ml-4 lg:ml-2">
               <img src="/walmart/walmartlogo.png" alt="Nirmaan Logo" className="h-12 md:h-12 object-contain" />
               <div className="h-12 border-l border-slate-200" aria-hidden />
               <img src="/walmart/logo.png" alt="Voila Logo" className="h-12 md:h-16 object-contain pl-3" />
@@ -88,7 +87,7 @@ export default function Walmart() {
         />
 
         {/* 2rd section */}
-        <section className="py-20 bg-white px-6 text-center">
+        <section className="py-20 bg-white px-4 text-center">
           <div className="max-w-7xl mx-auto">
             {/* Title */}
             <h2
@@ -100,44 +99,60 @@ export default function Walmart() {
             <p
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-gray-500 mb-12"
+              className="text-gray-500 mb-8"
             >
-              Here’s a breakdown of what you will receive as part of our Launch + 3 Months Plan: <br />
-              Your pathway to success on Walmart.com With Voila
+              Here’s a breakdown of what you will receive as part of our Launch + 3 Months Plan:
+              Your pathway to success on Walmart.com With VOILA
             </p>
 
             {/* Features Grid */}
             <div className="grid grid-cols-2 lg:grid-cols-3">
               {features2.map((feature, i) => {
-                const columns = 3; // number of columns in your grid on desktop
-                const isLastInRow = (i + 1) % columns === 0; // 3rd, 6th, 9th, ...
-                const isBottomRow = i >= features2.length - columns; // last row
+                const desktopColumns = 3;
+
+                // Desktop logic (already good)
+                const isLastInRowDesktop = (i + 1) % desktopColumns === 0;
+                const isBottomRowDesktop = i >= features2.length - desktopColumns;
+
+                // Mobile logic (2 columns)
+                const isLeftColumnMobile = i % 2 === 0;         // 0,2,4,... should get right border
+                const isLastRowMobile = i >= features2.length - 2;
 
                 return (
                   <div
                     key={i}
                     data-aos="fade-up"
                     data-aos-delay={i * 100}
-                    className={`flex flex-col items-center text-center p-2 lg:p-8 border-gray-200 bg-white hover:bg-gray-50 transition duration-300
-    ${!isLastInRow ? "lg:border-r" : ""}
-    ${!isBottomRow ? "lg:border-b" : ""}
-  `}
-                  >
+                    className={`flex flex-col items-center text-center p-4  transition duration-300 
 
+                      /* MOBILE LINES */
+                      ${isLeftColumnMobile ? "border-r border-gray-200" : ""}
+                      ${!isLastRowMobile ? "border-b  border-gray-200" : ""}
+
+                      /* DESKTOP LINES */
+                      ${!isLastInRowDesktop ? "lg:border-r lg:border-gray-200" : ""}
+                      ${!isBottomRowDesktop ? "lg:border-b lg:border-gray-200" : ""}
+                    `}
+
+
+                  >
                     <div className="mb-4">{feature.icon}</div>
-                    <h3 className="font-semibold text-lg text-gray-900 mb-2">
+                    <h3 className="font-semibold text-md lg:text-lg text-gray-900 mb-2">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+                    <p className="mt-2 text-slate-500 max-w-md text-justify lg:text-center text-sm lg:text-base mb-2">
+                      {feature.desc}
+                    </p>
                   </div>
                 );
               })}
 
 
+
             </div>
           </div>
 
-          <h2 className="text-xl  mt-6 lg:mt-4"><span className="text-red-700 font-bold">ZERO Fee</span>  All of the services and credits above come at<b> no charge </b>to you, with a total
+          <h2 className="text-base  mt-6 lg:mt-4"><span className="text-red-700 font-bold">ZERO Fee</span>  All of the services and credits above come at<b> no charge </b>to you, with a total
             value of approximately <s className="text-red-700">₹1,35,000.</s> Absolutely Free</h2>
 
           <a href={href} target="_blank" rel="noopener noreferrer">
@@ -146,6 +161,8 @@ export default function Walmart() {
             </button>
           </a>
         </section>
+
+
 
 
 
@@ -181,12 +198,12 @@ export default function Walmart() {
               {/* Right: Stats grid */}
               <div className="w-full lg:w-2/3" data-aos="fade-left">
                 <h3 className="text-center lg:text-left text-2xl lg:text-3xl font-semibold text-slate-800 mb-8">
-                  Tap into endless opportunities with Walmart
+                  Why Walmart Should Be Your Next Selling Platform
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Card 1 */}
-                  <div className="flex items-start gap-6 bg-transparent">
+                  <div className="flex items-start gap-2 lg:gap-6 bg-transparent">
                     <div className="flex items-center">
                       <div className="w-1.5 h-20 bg-yellow-400 rounded-sm mr-4 hidden md:block" />
                     </div>
@@ -200,7 +217,7 @@ export default function Walmart() {
                   </div>
 
                   {/* Card 2 */}
-                  <div className="flex items-start gap-6 bg-transparent">
+                  <div className="flex items-start  gap-2 lg:gap-6 bg-gray-200 lg:bg-transparent p-2 border-2 border-gray-300 lg:border-none">
                     <div className="flex items-center">
                       <div className="w-1.5 h-20 bg-yellow-400 rounded-sm mr-4 hidden md:block" />
                     </div>
@@ -215,7 +232,7 @@ export default function Walmart() {
                   </div>
 
                   {/* Card 3 */}
-                  <div className="flex items-start gap-6 bg-transparent">
+                  <div className="flex items-start  gap-2 lg:gap-6 bg-transparent">
                     <div className="flex items-center">
                       <div className="w-1.5 h-20 bg-yellow-400 rounded-sm mr-4 hidden md:block" />
                     </div>
@@ -231,7 +248,7 @@ export default function Walmart() {
 
 
                   {/* Card 4 */}
-                  <div className="flex items-start gap-6 bg-transparent">
+                  <div className="flex items-start  gap-2 lg:gap-6 bg-gray-200 lg:bg-transparent p-2 border-2 border-gray-300 lg:border-none">
                     <div className="flex items-center">
                       <div className="w-1.5 h-20 bg-yellow-400 rounded-sm mr-4 hidden md:block" />
                     </div>
@@ -245,7 +262,7 @@ export default function Walmart() {
                   </div>
 
                   {/* Card 5 */}
-                  <div className="flex items-start gap-6 bg-transparent">
+                  <div className="flex items-start  gap-2 lg:gap-6 bg-transparent">
                     <div className="flex items-center">
                       <div className="w-1.5 h-20 bg-yellow-400 rounded-sm mr-4 hidden md:block" />
                     </div>
@@ -261,7 +278,7 @@ export default function Walmart() {
                   </div>
 
                   {/* Card 6 */}
-                  <div className="flex items-start gap-6 bg-transparent">
+                  <div className="flex items-start  gap-2 lg:gap-6 bg-gray-200 lg:bg-transparent p-2 border-2 border-gray-300 lg:border-none">
                     <div className="flex items-center">
                       <div className="w-1.5 h-20 bg-yellow-400 rounded-sm mr-4 hidden md:block" />
                     </div>
@@ -286,10 +303,29 @@ export default function Walmart() {
 
 
 
+
+      <section className=" py-16 px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Left column - Copy */}
+          <div className="order-2 lg:order-1">
+            <div className="text-sm font-medium uppercase tracking-wider text-gray-600">VOILA Partnerships With Walmart</div>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug">Building a better way to sell on Walmart</h1>
+
+            <p className="mt-2 text-sm lg:text-base text-slate-500 max-w-md">
+              VOILA combines years of marketplace expertise with a strategic approach designed for success on Walmart.com. We support brands through each critical step—from onboarding and catalog readiness to marketplace optimization—ensuring a seamless U.S. entry and sustainable growth. Our understanding of the Walmart ecosystem, consumer trends, and operational requirements helps brands scale with far greater ease. With VOILA by your side, your Walmart expansion becomes structured, data-led, and future-ready.              </p>
+
+            {/* <div className="mt-8 flex items-center gap-4">
+              <a href="#contact" className="inline-block bg-[#5b2b6e] text-white px-6 py-3 rounded-md font-semibold shadow-sm hover:opacity-95">Partner with VOILA</a>             
+               </div> */}
+          </div>
+
+          {/* Right column - Illustration grid */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <img src="partner.png" alt="Partnerships Illustration" className="w-108 h-auto max-w-md lg:max-w-lg p-8" />
+          </div>
+        </div>
+      </section>
       <ContactFormEmailJS />
-
-
-
 
       <FAQ faqs={WalmartUsFaq} />
 
@@ -314,28 +350,40 @@ export default function Walmart() {
 
             {/* Logo + Social Media */}
             <div className="md:col-span-1">
-              <div className="flex flex-col-reverse lg:flex-row justify-evenly gap-2">
+              {/* MOBILE: logo + address, social icons below */}
+              <div className="flex flex-col lg:flex-row justify-evenly gap-4">
 
-                {/* Social Media Icons */}
-                <div className="flex flex-row lg:flex-col gap-3">
-                  <Link
-                    to="https://www.facebook.com/VoilaStudio.in/"
-                    target='_blank'
+                {/* Logo + Address (side-by-side on mobile, column on desktop) */}
+                <div className="flex flex-row items-center gap-3 lg:flex-col">
+                  {/* Logo */}
+                  <div className="bg-white p-3 rounded-xl shadow_logo w-28 h-28 flex items-center justify-center">
+                    <img src="/lotusimall/logo.png" alt="Logo" className="h-18 w-auto m-auto" />
+                  </div>
+
+                  {/* Address (mobile only) */}
+                  <div className="block lg:hidden w-2/3">
+                    <h3 className="text-xl font-semibold mb-2">Address</h3>
+                    <p className="text-purple-200 text-sm">
+                      Unit 1007-1008A, WellDone TechPark, Sector 48, Gurugram, Haryana-122018, India
+                    </p>
+                  </div>
+                </div>
+
+                {/* Social Media Icons — go *below* logo + address on mobile */}
+                <div className="flex flex-row justify-center lg:flex-col gap-3 order-last lg:order-none">
+                  <Link to="https://www.facebook.com/VoilaStudio.in/" target="_blank"
                     className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                   >
-                    <Facebook className="w-5 h-5  text-[#662D91] " />
+                    <Facebook className="w-5 h-5 text-[#662D91]" />
                   </Link>
 
-                  <Link
-                    to="https://www.instagram.com/VoilaStudio.in/"
-                    target='_blank'
+                  <Link to="https://www.instagram.com/VoilaStudio.in/" target="_blank"
                     className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                   >
-                    <Instagram className="w-5 h-5 text-[#662D91] " />
+                    <Instagram className="w-5 h-5 text-[#662D91]" />
                   </Link>
 
-                  <Link
-                    to="https://x.com/studiovoila?lang=en"
+                  <Link to="https://x.com/studiovoila?lang=en"
                     className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                   >
                     <svg className="w-5 h-5 text-[#662D91]" viewBox="0 0 24 24" fill="currentColor">
@@ -343,76 +391,105 @@ export default function Walmart() {
                     </svg>
                   </Link>
 
-                  <Link
-                    to="https://in.linkedin.com/showcase/voilastudio"
+                  <Link to="https://in.linkedin.com/showcase/voilastudio"
                     className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                   >
                     <Linkedin className="w-5 h-5 text-[#662D91]" />
                   </Link>
 
-                  <Link
-                    to="https://www.youtube.com/@VOILA_BIZ"
+                  <Link to="https://www.youtube.com/@VOILA_BIZ"
                     className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                   >
                     <Youtube className="w-5 h-5 text-[#662D91]" />
                   </Link>
                 </div>
 
-                {/* Logo Box */}
-                <div className="bg-white p-3 rounded-xl shadow_logo w-28 h-28 flex items-center justify-center">
-                  <img src="/logo.png" alt="Logo" className="h-18 w-auto m-auto" />
-                </div>
-
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-xl font-semibold mb-6">Our Verticles</h3>
-              <ul className="space-y-2">
-                <li><Link target="_blank" to="https://voilastudio.in/" className="text-white hover:text-purple-200 flex items-center"> VOILA Studio</Link></li>
-                <li><Link target="_blank" to="https://voilabiz.com/" className="text-white hover:text-purple-200 flex items-center"> VOILA Biz</Link></li>
-                <li><Link target="_blank" to="https://voilaretail.com/" className="text-white hover:text-purple-200 flex items-center"> VOILA Retail</Link></li>
-                <li><Link target="_blank" to="https://voilakart.com/" className="text-white hover:text-purple-200 flex items-center"> VOILA Kart</Link></li>
 
-              </ul>
+            {/* Verticles + Contact Wrapped Together */}
+            <div className="grid grid-cols-2 gap-8 md:col-span-2">
+
+              {/* Quick Links / Our Verticles */}
+              <div className="w-full">
+                <h3 className="text-xl font-semibold mb-2">Our Verticles</h3>
+                <ul className="space-y-4">
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://voilastudio.in/"
+                      className="text-white hover:text-purple-200 flex items-center"
+                    >
+                      VOILA Studio
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://voilabiz.com/"
+                      className="text-white hover:text-purple-200 flex items-center"
+                    >
+                      VOILA Biz
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://voilaretail.com/"
+                      className="text-white hover:text-purple-200 flex items-center"
+                    >
+                      VOILA Retail
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://voilakart.com/"
+                      className="text-white hover:text-purple-200 flex items-center"
+                    >
+                      VOILA Kart
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Contact */}
+              <div className="w-full">
+                <h3 className="text-xl font-semibold mb-2">Contact</h3>
+                <div className="space-y-1">
+                  <div>
+                    <p className="text-white">
+                      Phone : <br />
+                      <a href="tel:+919810554548" className="text-white block">+91 9810554548</a>
+                      <a href="tel:+919821654548" className="text-white block">+91 9821654548</a>
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-white">
+                      Email :<br />
+                      <a href="mailto:info@voilabiz.com" className="text-white block">info@voilabiz.com</a>
+                      <a href="mailto:info@intemim.com" className="text-white block">info@intemim.com</a>
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
             </div>
 
-            {/* Browse */}
-            <div>
-              <h3 className="text-xl font-semibold mb-6">Policies</h3>
-              <ul className="space-y-2">
-                <li><Link target="_blank" to="/privacy-policy" className="text-white hover:text-purple-200 flex items-center"> Privacy Policy</Link></li>
-                <li><Link target="_blank" to="/terms-and-condition" className="text-white hover:text-purple-200 flex items-center"> Terms & Conditions</Link></li>
-                <li><Link target="_blank" to="/refund-policy" className="text-white hover:text-purple-200 flex items-center"> Cancellation & Refund Policy</Link></li>
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h3 className="text-xl font-semibold mb-6">Contact</h3>
+            {/* Address */}
+            <div className="md:col-span-1 hidden lg:block">
+              <h3 className="text-xl font-semibold mb-6">Address</h3>
               <div className="space-y-4">
                 <div>
                   <p className="text-purple-200 text-sm mb-2">Unit 1007-1008A, WellDone TechPark, Sector 48, Gurugram, Haryana-122018, India</p>
                 </div>
-
-                <div>
-                  <p className="text-white">
-                    Phone : <br />
-                    <a href="tel:+919810554548" class="text-white">+91 9810554548</a><br />
-                    <a href="tel:+919821554548" class="text-white">+91 9821554548</a><br />
-                    <a href="tel:+919821654548" class="text-white">+91 9821654548</a>
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-white">
-                    Email :
-                    <a href="mailto:info@voilabiz.com" class="text-white">info@voilabiz.com</a> <br />
-                    <a href="mailto:info@intemim.com" class="text-white">info@intemim.com</a>
-                  </p>
-                </div>
-
               </div>
             </div>
 

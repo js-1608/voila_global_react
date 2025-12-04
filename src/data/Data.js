@@ -126,12 +126,12 @@ export const WalmartUsFaq = [
   {
     id: 1,
     question: "Do I need U.S. bank details to receive payments?",
-    answer: "No. Payments can be credited to your Indian bank account through Walmart’s approved payment partners."
+    answer: "No. Payments can be credited to your Indian bank account through Walmart’s approved payment partners like Payoneer."
   },
   {
     id: 2,
     question: "What shipping methods can I use for Walmart U.S.?",
-    answer: "You can ship directly from India or use U.S. fulfillment centers. Both options depend on your category and pricing strategy."
+    answer: "You can ship directly from India or use U.S. fulfillment centers (3PLs or WFS), depending on your category and pricing strategy."
   },
   {
     id: 3,
@@ -141,59 +141,85 @@ export const WalmartUsFaq = [
   {
     id: 4,
     question: "How long does Walmart U.S. account approval usually take?",
-    answer: "Typically 2–4 weeks, depending on documentation accuracy and category clearance."
+    answer: "Approval typically takes 2–4 weeks, depending on documentation accuracy and category clearance."
   },
   {
     id: 5,
     question: "Are Indian sellers required to hold U.S. inventory?",
-    answer: "Not mandatory. Many Indian sellers ship from India until they scale."
+    answer: "Yes, if you want to use Walmart Fulfillment Services (WFS). You must list 18 products and send 100 units to a Walmart warehouse to qualify for WFS support. Shipping from India is also allowed for non-WFS sellers."
   },
   {
     id: 6,
     question: "What import compliances do I need to follow for Walmart U.S.?",
-    answer: "You must follow U.S. customs rules, category-specific regulations, and proper labeling for all shipments."
+    answer: "You must follow U.S. customs rules, category-specific regulations, proper labeling, and hold an IEC code to export from India."
   },
   {
     id: 7,
     question: "Is GS1 barcode mandatory for Walmart U.S.?",
-    answer: "Yes, Walmart accepts only GS1-verified UPC barcodes for most product categories."
+    answer: "No, GS1 is not mandatory. You can use GS1 barcodes or request a GTIN Exemption for eligible categories."
   },
   {
     id: 8,
     question: "What is Walmart’s fee structure for sellers?",
-    answer: "Walmart charges category-based referral fees. There are no monthly subscription fees."
+    answer: "Walmart charges category-based referral fees. There are no monthly subscription or account maintenance fees."
   },
   {
     id: 9,
     question: "How important is product pricing for Walmart U.S.?",
-    answer: "Very important. Walmart prioritizes competitive pricing, so pricing strategy must be optimized for the U.S. market."
+    answer: "Very important. Walmart prioritizes competitive pricing, so pricing strategy must be optimized for the U.S. marketplace."
   },
   {
     id: 10,
     question: "What documents do I need for Walmart U.S. onboarding?",
-    answer: "You need KYC, GST, PAN, brand documents, product compliance certificates (if applicable), and bank details."
+    answer: "You will need: GST Certificate, PAN (colored PDF), last 3 months bank statements, utility bill (if addresses differ), IEC, and AD Code."
   },
   {
     id: 11,
     question: "Can I list the same products I sell on Indian marketplaces?",
-    answer: "Yes, as long as they meet U.S. compliance standards and demand aligns with the U.S. market."
+    answer: "Yes, as long as the products meet U.S. compliance standards and have demand in the U.S. market."
   },
   {
     id: 12,
     question: "What product categories perform well for Indian sellers on Walmart U.S.?",
-    answer: "Apparel, accessories, home decor, beauty, electronics accessories, and gifting categories often see strong demand."
+    answer: "Top-performing categories include apparel, accessories, home decor, sports, baby products, beauty, electronics accessories, and gifting items."
   },
   {
     id: 13,
     question: "Does Walmart allow cross-border shipping for all categories?",
-    answer: "Some restricted categories, such as food, medicine, or hazardous goods, require special approvals."
+    answer: "Some restricted categories, such as food, medicine, or hazardous items, require special approvals."
   },
   {
     id: 14,
     question: "Does Walmart require product testing or certifications?",
-    answer: "Yes, certain categories like toys, electronics, beauty, and baby products require specific testing or certifications."
-  }
+    answer: "Yes. Categories like toys, electronics, beauty, and baby products require specific testing or certifications to comply with U.S. regulations."
+  },
+  {
+    id: 15,
+    question: "How many products do I need to list on Walmart?",
+    answer: "You must list at least 30 products on Walmart.com to complete onboarding effectively."
+  },
+  {
+    id: 16,
+    question: "What is the minimum shipment requirement for Walmart WFS?",
+    answer: "You are required to ship 100 units (mixed SKUs allowed) for your first WFS shipment."
+  },
+  {
+    id: 17,
+    question: "What if I don’t have barcodes for my products?",
+    answer: "You can use GS1 barcodes or apply for a GTIN Exemption if your category allows it."
+  },
+  {
+    id: 18,
+    question: "Who is responsible for paying duties and import taxes when shipping to the U.S.?",
+    answer: "The seller (exporter) is responsible for all customs duties and import taxes. Walmart does not act as the importer of record."
+  },
+  {
+    id: 19,
+    question: "Can I list products on Walmart without barcodes?",
+    answer: "Some categories require UPC/GTIN barcodes (like toys, books, branded items). Handmade or unbranded items may qualify without barcodes, and you can request a GTIN Exemption."
+  }, 
 ];
+
 
 export const LotusIMallFaq = [
   {
@@ -285,7 +311,26 @@ export const LotusIMallFaq = [
     id: 17,
     question: "How is product authenticity maintained?",
     answer: "Only verified brand owners are allowed to sell, ensuring authenticity and quality."
-  }
+  }, {
+    id: 18,
+    question: "What happens if the settlement amount is not received?",
+    answer: "If any settlement is delayed or not credited, Lotus iMall ensures quick resolution through its support and escalation system. The finance team verifies the issue and processes the pending amount promptly."
+  },
+  {
+    id: 19,
+    question: "How are settlements processed for orders?",
+    answer: "Settlements are processed on a transaction basis once an order is delivered. The full Transaction Price (TP Price) is settled with no hidden deductions."
+  },
+  {
+    id: 20,
+    question: "What documents are required for brand verification?",
+    answer: "Brand verification generally requires brand registration certificates, GST details, and supporting documents that confirm brand ownership."
+  },
+  {
+    id: 21,
+    question: "Will training or assistance be provided for understanding the process?",
+    answer: "Yes, Lotus iMall offers training webinars and guidance sessions to help brand partners understand processes and operate smoothly on the platform."
+  },
 ];
 
 // website faqs

@@ -30,9 +30,9 @@ import FAQ from "../Components/Faq";
 import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { LotusIMallFaq } from "../data/Data";
 import { Link } from "react-router-dom";
-
-import ContactFormEmailJS from "../Components/WalmartCta";
+import ContactFormEmailJS from "../Components/ContactForm";
 import { GlobeAltIcon } from "@heroicons/react/20/solid";
+import VoilaLotusSection from "../Components/VoilaLotusSection";
 
 
 export default function LotusImall() {
@@ -176,7 +176,7 @@ export default function LotusImall() {
                     <div className="flex items-center justify-between">
                         {/* Left: Logos */}
                         <div className="flex items-center gap-4">
-                            <img src="https://lotusimall.com/design/images/logo/Lotus-img.svg" alt="Nirmaan Logo" className="h-12 md:h-16 object-contain bg-black p-2 rounded-lg shadow_logo" />
+                            <img src="https://lotusimall.com/design/images/logo/Lotus-img.svg" alt="Nirmaan Logo" className="h-12 md:h-16 object-contain bg-black p-1 rounded-lg shadow_logo" />
                             <div className="h-12 border-l border-slate-200" aria-hidden />
                             <img src="/lotusimall/logo.png" alt="Voila Logo" className="h-12 md:h-16 object-contain" />
                         </div>
@@ -201,68 +201,68 @@ export default function LotusImall() {
                 />
 
                 <img
-                    src="/lotusimall/mobile_banner.png"
+                    src="/lotusimall/lotus_mobile.png"
                     className="w-full block md:hidden"
                 />
 
-                {/* 2rd section */}
-                <section className="py-20 bg-white  text-center">
-                    <div className="max-w-7xl mx-auto">
-                        {/* Title */}
-                        <h2
-                            data-aos="fade-up"
-                            className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 leading-snug"
-                        >
-                            LOTUSiMALL MARKETPLACE MODEL
-                        </h2>
-                        <p
-                            data-aos="fade-up"
-                            data-aos-delay="100"
-                            className="text-gray-500 mb-12"
-                        >
-                            SIMPLE. TRANSPARENT. PROFITABLE.
-                        </p>
 
-                        {/* Features Grid */}
-                        <div className="grid grid-cols-2 lg:grid-cols-3">
-                            {features2.map((feature, i) => {
-                                const columns = 3; // number of columns in your grid on desktop
-                                const isLastInRow = (i + 1) % columns === 0; // 3rd, 6th, 9th, ...
-                                const isBottomRow = i >= features2.length - columns; // last row
 
-                                return (
-                                    <div
-                                        key={i}
-                                        data-aos="fade-up"
-                                        data-aos-delay={i * 100}
-                                        className={`flex flex-col items-center text-center p-2 lg:p-8 border-gray-200 bg-white hover:bg-gray-50 transition duration-300
-                        ${!isLastInRow ? "lg:border-r" : ""}
-                        ${!isBottomRow ? "lg:border-b" : ""}
-                    `}
-                                    >
 
-                                        <div className="mb-4">{feature.icon}</div>
-                                        <h3 className="font-semibold text-lg text-gray-900 mb-2">
-                                            {feature.title}
-                                        </h3>
-                                        <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+                <section className="py-12 bg-gradient-to-b from-white to-slate-50">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <header className="text-center mb-10">
+                            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">LOTUS iMALL MARKETPLACE MODEL</h2>
+                            <p className="mt-3 text-slate-500 uppercase tracking-wide text-sm">SIMPLE. TRANSPARENT. PROFITABLE.</p>
+                        </header>
+
+
+                        {/* Cards grid */}
+                        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                            {features2.map((feature, i) => (
+                                <article
+                                    key={i}
+                                    className="relative bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transform hover:-translate-y-1 transition-all duration-250 ring-1 ring-slate-100"
+                                    aria-labelledby={`feature-${i}-title`}
+                                >
+                                    <div className="flex items-start gap-4">
+                                        <div className="flex-none w-14 h-14 rounded-lg bg-gradient-to-br from-yellow-50 to-yellow-100 flex items-center justify-center text-yellow-600">
+                                            {feature.icon}
+                                        </div>
+                                        <div className="flex-1 text-left">
+                                            <h3 id={`feature-${i}-title`} className="text-lg font-semibold text-slate-900">
+                                                {feature.title}
+                                            </h3>
+                                            <p className="mt-2 text-sm text-slate-600 leading-relaxed">{feature.desc}</p>
+                                        </div>
                                     </div>
-                                );
-                            })}
 
 
+                                    {/* subtle divider and pill */}
+                                    {/* <div className="mt-4 flex items-center justify-between">
+                                        <span className="text-xs text-slate-400">Trusted by fast-growing brands</span>
+                                        <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-slate-100 rounded-full">{i + 1}</span>
+                                    </div> */}
+                                </article>
+                            ))}
+                        </div>
+
+
+                        {/* CTA */}
+                        <div className="mt-10 text-center">
+                            <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3">
+                                <button className="inline-flex items-center gap-3 bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-semibold px-6 py-3 rounded-lg shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-yellow-300">
+                                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
+                                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                    GET STARTED FOR FREE
+                                </button>
+                            </a>
+
+
+                            <p className="mt-3 text-sm text-slate-500">No setup fees • Cancel anytime • Dedicated onboarding</p>
                         </div>
                     </div>
-
-
-
-                    <a href={href} target="_blank" rel="noopener noreferrer">
-                        <button className="mt-8 bg-yellow-400 text-gray-900 font-bold px-6 py-3 rounded-lg hover:bg-yellow-300 transition">
-                            GET STARTED FOR FREE
-                        </button>
-                    </a>
                 </section>
-
                 <div className="w-full p-4 md:p-10 bg-white hidden md:block">
                     <div className="relative">
                         {/* Horizontal line (desktop only) */}
@@ -315,35 +315,36 @@ export default function LotusImall() {
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                         <div className="md:w-1/2" data-aos="fade-right">
                             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-snug">
-                                Why partner with <span className="text-gray-600">Lotus I Mall</span>
+                                Why partner with <span className="text-gray-600">Lotus iMall</span>
                             </h2>
-                            <p className="mt-4 text-gray-600 text-base sm:text-lg">
+                            <p className="mt-4 text-slate-600 leading-relaxed text-sm text-justify">
                                 Choosing the right e-commerce partner can define how fast your brand grows in today’s competitive online market. Lotus iMall is built with one clear goal—to create an ecosystem where brands can grow confidently, earn more, and connect with customers across India without unnecessary complications or hidden costs.
                             </p>
-                            <p className="mt-4 text-gray-600 text-base sm:text-lg">Lotus iMall is not just another marketplace. It is a brand-focused platform designed to support D2C businesses with a structure that prioritizes transparency, growth, and long-term success. Whether you are an emerging D2C label or an established business expanding digitally, Lotus iMall provides a stable and rewarding environment to scale your brand.</p>
+                            <p className="mt-4 text-slate-600 leading-relaxed text-sm text-justify">
+                                Lotus iMall is not just another marketplace. It is a brand-focused platform designed to support D2C businesses with a structure that prioritizes transparency, growth, and long-term success. Whether you are an emerging D2C label or an established business expanding digitally, Lotus iMall provides a stable and rewarding environment to scale your brand.</p>
 
                             <div className="mt-6 flex items-center gap-4">
                                 <a
-                                    href="#get-started"
+                                    href={href}
                                     className="inline-block rounded-2xl px-6 py-3 border border-indigo-600 bg-indigo-600 text-white font-medium shadow-sm hover:shadow-lg transition-shadow"
                                     data-aos="zoom-in"
                                 >
                                     Get started — it's free
                                 </a>
 
-                                <a
-                                    href="#contact"
+                                {/* <a
+                                    href="#
                                     className="inline-block rounded-2xl px-6 py-3 text-indigo-700 font-medium hover:underline"
                                     data-aos="zoom-in"
                                     data-aos-delay="120"
                                 >
                                     Talk to our team
-                                </a>
+                                </a> */}
                             </div>
                         </div>
 
                         <div className="md:w-1/2 grid grid-cols-1" data-aos="fade-left">
-                           <img src="/lotusimall/lotus/why.jpg" className="h-112 m-auto rounded-2xl p-2  border-2 border-gray-400"/>
+                            <img src="/lotusimall/lotus/whyus.png" className="h-112 m-auto rounded-2xl p-2  border-2 border-gray-400" />
                         </div>
                     </div>
 
@@ -372,6 +373,7 @@ export default function LotusImall() {
                 </div>
             </section>
 
+            <VoilaLotusSection />
 
 
 
@@ -403,28 +405,40 @@ export default function LotusImall() {
 
                         {/* Logo + Social Media */}
                         <div className="md:col-span-1">
-                            <div className="flex flex-col-reverse lg:flex-row justify-evenly gap-2">
+                            {/* MOBILE: logo + address, social icons below */}
+                            <div className="flex flex-col lg:flex-row justify-evenly gap-4">
 
-                                {/* Social Media Icons */}
-                                <div className="flex flex-row lg:flex-col gap-3">
-                                    <Link
-                                        to="https://www.facebook.com/VoilaStudio.in/"
-                                        target='_blank'
+                                {/* Logo + Address (side-by-side on mobile, column on desktop) */}
+                                <div className="flex flex-row items-center gap-3 lg:flex-col">
+                                    {/* Logo */}
+                                    <div className="bg-white p-3 rounded-xl shadow_logo w-28 h-28 flex items-center justify-center">
+                                        <img src="/lotusimall/logo.png" alt="Logo" className="h-18 w-auto m-auto" />
+                                    </div>
+
+                                    {/* Address (mobile only) */}
+                                    <div className="block lg:hidden w-2/3">
+                                        <h3 className="text-xl font-semibold mb-2">Address</h3>
+                                        <p className="text-purple-200 text-sm">
+                                            Unit 1007-1008A, WellDone TechPark, Sector 48, Gurugram, Haryana-122018, India
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Social Media Icons — go *below* logo + address on mobile */}
+                                <div className="flex flex-row justify-center lg:flex-col gap-3 order-last lg:order-none">
+                                    <Link to="https://www.facebook.com/VoilaStudio.in/" target="_blank"
                                         className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                                     >
-                                        <Facebook className="w-5 h-5  text-[#662D91] " />
+                                        <Facebook className="w-5 h-5 text-[#662D91]" />
                                     </Link>
 
-                                    <Link
-                                        to="https://www.instagram.com/VoilaStudio.in/"
-                                        target='_blank'
+                                    <Link to="https://www.instagram.com/VoilaStudio.in/" target="_blank"
                                         className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                                     >
-                                        <Instagram className="w-5 h-5 text-[#662D91] " />
+                                        <Instagram className="w-5 h-5 text-[#662D91]" />
                                     </Link>
 
-                                    <Link
-                                        to="https://x.com/studiovoila?lang=en"
+                                    <Link to="https://x.com/studiovoila?lang=en"
                                         className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                                     >
                                         <svg className="w-5 h-5 text-[#662D91]" viewBox="0 0 24 24" fill="currentColor">
@@ -432,76 +446,105 @@ export default function LotusImall() {
                                         </svg>
                                     </Link>
 
-                                    <Link
-                                        to="https://in.linkedin.com/showcase/voilastudio"
+                                    <Link to="https://in.linkedin.com/showcase/voilastudio"
                                         className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                                     >
                                         <Linkedin className="w-5 h-5 text-[#662D91]" />
                                     </Link>
 
-                                    <Link
-                                        to="https://www.youtube.com/@VOILA_BIZ"
+                                    <Link to="https://www.youtube.com/@VOILA_BIZ"
                                         className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-all duration-300"
                                     >
                                         <Youtube className="w-5 h-5 text-[#662D91]" />
                                     </Link>
                                 </div>
 
-                                {/* Logo Box */}
-                                <div className="bg-white p-3 rounded-xl shadow_logo w-28 h-28 flex items-center justify-center">
-                                    <img src="/logo.png" alt="Logo" className="h-18 w-auto m-auto" />
-                                </div>
-
                             </div>
                         </div>
 
-                        {/* Quick Links */}
-                        <div>
-                            <h3 className="text-xl font-semibold mb-6">Our Verticles</h3>
-                            <ul className="space-y-2">
-                                <li><Link target="_blank" to="https://voilastudio.in/" className="text-white hover:text-purple-200 flex items-center"> VOILA Studio</Link></li>
-                                <li><Link target="_blank" to="https://voilabiz.com/" className="text-white hover:text-purple-200 flex items-center"> VOILA Biz</Link></li>
-                                <li><Link target="_blank" to="https://voilaretail.com/" className="text-white hover:text-purple-200 flex items-center"> VOILA Retail</Link></li>
-                                <li><Link target="_blank" to="https://voilakart.com/" className="text-white hover:text-purple-200 flex items-center"> VOILA Kart</Link></li>
 
-                            </ul>
+                        {/* Verticles + Contact Wrapped Together */}
+                        <div className="grid grid-cols-2 gap-8 md:col-span-2">
+
+                            {/* Quick Links / Our Verticles */}
+                            <div className="w-full">
+                                <h3 className="text-xl font-semibold mb-2">Our Verticles</h3>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <a
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href="https://voilastudio.in/"
+                                            className="text-white hover:text-purple-200 flex items-center"
+                                        >
+                                            VOILA Studio
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href="https://voilabiz.com/"
+                                            className="text-white hover:text-purple-200 flex items-center"
+                                        >
+                                            VOILA Biz
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href="https://voilaretail.com/"
+                                            className="text-white hover:text-purple-200 flex items-center"
+                                        >
+                                            VOILA Retail
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href="https://voilakart.com/"
+                                            className="text-white hover:text-purple-200 flex items-center"
+                                        >
+                                            VOILA Kart
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Contact */}
+                            <div className="w-full">
+                                <h3 className="text-xl font-semibold mb-2">Contact</h3>
+                                <div className="space-y-1">
+                                    <div>
+                                        <p className="text-white">
+                                            Phone : <br />
+                                            <a href="tel:+919810554548" className="text-white block">+91 9810554548</a>
+                                            <a href="tel:+919821654548" className="text-white block">+91 9821654548</a>
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <p className="text-white">
+                                            Email :<br />
+                                            <a href="mailto:info@voilabiz.com" className="text-white block">info@voilabiz.com</a>
+                                            <a href="mailto:info@intemim.com" className="text-white block">info@intemim.com</a>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </div>
 
-                        {/* Browse */}
-                        <div>
-                            <h3 className="text-xl font-semibold mb-6">Policies</h3>
-                            <ul className="space-y-2">
-                                <li><Link target="_blank" to="/privacy-policy" className="text-white hover:text-purple-200 flex items-center"> Privacy Policy</Link></li>
-                                <li><Link target="_blank" to="/terms-and-condition" className="text-white hover:text-purple-200 flex items-center"> Terms & Conditions</Link></li>
-                                <li><Link target="_blank" to="/refund-policy" className="text-white hover:text-purple-200 flex items-center"> Cancellation & Refund Policy</Link></li>
-                            </ul>
-                        </div>
-
-                        {/* Contact */}
-                        <div>
-                            <h3 className="text-xl font-semibold mb-6">Contact</h3>
+                        {/* Address */}
+                        <div className="md:col-span-1 hidden lg:block">
+                            <h3 className="text-xl font-semibold mb-6">Address</h3>
                             <div className="space-y-4">
                                 <div>
                                     <p className="text-purple-200 text-sm mb-2">Unit 1007-1008A, WellDone TechPark, Sector 48, Gurugram, Haryana-122018, India</p>
                                 </div>
-
-                                <div>
-                                    <p className="text-white">
-                                        Phone : <br />
-                                        <a href="tel:+919810554548" className="text-white">+91 9810554548</a><br />
-                                        <a href="tel:+919821554548" className="text-white">+91 9821554548</a><br />
-                                        <a href="tel:+919821654548" className="text-white">+91 9821654548</a>
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <p className="text-white">
-                                        Email :
-                                        <a href="mailto:info@voilabiz.com" className="text-white">info@voilabiz.com</a> <br />
-                                        <a href="mailto:info@intemim.com" className="text-white">info@intemim.com</a>
-                                    </p>
-                                </div>
-
                             </div>
                         </div>
 

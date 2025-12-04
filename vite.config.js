@@ -12,5 +12,5 @@ export default defineConfig({
     }),
     tailwindcss()
   ],
-  base: '/flipkart/',
+  base: '/walmart/',
 })

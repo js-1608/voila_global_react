@@ -12,7 +12,7 @@ import TermsAndConditionsPage from './Pages/TermsAndCondition';
 import RefundCancellationPolicy from './Pages/Cancellation';
 import ScrollToTop from './Components/ScrollToTop';
 
-import Walmart from './Pages/Walmart';
+import Flipkart from './Pages/Flipkart';
 
 function App() {
     useEffect(() => {
@@ -24,11 +24,11 @@ function App() {
     }, []);
 
     return (
-        <Router basename="/walmart">
+        <Router basename="/flipkart">
             <ScrollToTop />
 
             <Routes>
-                <Route path="/" element={<Walmart />} />
+                <Route path="/" element={<Flipkart />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                 <Route path="/terms-and-condition" element={<TermsAndConditionsPage />} />
                 <Route path="/refund-policy" element={<RefundCancellationPolicy />} />
