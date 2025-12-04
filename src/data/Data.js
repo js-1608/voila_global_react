@@ -288,6 +288,37 @@ export const LotusIMallFaq = [
   }
 ];
 
+
+export const VriddhiFaq = [
+  {
+    id: 0,
+    question: "Do I need to pay anything to create my Flipkart seller account?",
+    answer: "No. Flipkart account registration is free of cost. This is applicable only after claiming the free Walmart certification."
+  },
+  {
+    id: 1,
+    question: "Are there any hidden charges involved in this onboarding service?",
+    answer: "No. The onboarding support under the Walmart Vriddhi Program is completely free, with no hidden fees."
+  },
+  {
+    id: 2,
+    question: "Is the Walmart Vriddhi certification mandatory to access these free services?",
+    answer: "Yes. Completing the Walmart Vriddhi Learning Modules and securing the certification is required to avail the free onboarding benefits."
+  },
+  {
+    id: 3,
+    question: "How long does the Walmart Vriddhi certification process take?",
+    answer: "The modules are self-paced. Most sellers complete them within a few hours."
+  },
+  {
+    id: 4,
+    question: "Can I join the program if I’m already selling on Flipkart?",
+    answer: "Yes, you can — but only if you meet the eligibility conditions for existing sellers. If you have had no sales (GMV) in the last 1 year, you are eligible. If your account is registered but not launched, you are eligible. If you onboarded and launched within the last 15 days but haven’t received any sales yet, you are also eligible."
+  }
+];
+
+
+
 // website faqs
 export const WebisteFaq = [
   {

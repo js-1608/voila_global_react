@@ -73,14 +73,14 @@ export default function ContactFormEmailJS() {
   };
 
   return (
-    <section className="bg-violet-700 p-2 min-h-[520px]">
+    <section className="bg-[#2A55E5] p-2 min-h-[520px]">
       <div className="max-w-7xl mx-auto w-full text-center p-2 md:p-6">
         {/* Title */}
         <h2 data-aos="fade-up" className="text-3xl md:text-4xl font-bold text-white mb-1 leading-snug">
           Connect Now
         </h2>
         <p data-aos="fade-up" data-aos-delay="100" className="text-white">
-          Let's Contect with our Ecommerce Account Management Expert for your Valuable Solution.
+         Connect with our eCommerce Consultants to find the right solution for your business
         </p>
       </div>
 
