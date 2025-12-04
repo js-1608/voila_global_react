@@ -344,7 +344,7 @@ export default function LotusImall() {
                         </div>
 
                         <div className="md:w-1/2 grid grid-cols-1" data-aos="fade-left">
-                            <img src="/lotusimall/lotus/whyus.png" className="h-112 m-auto rounded-2xl p-2  border-2 border-gray-400" />
+                            <img src="/lotusimall/partner.png" className="w-full lg:w-2/3 h-auto m-auto rounded-2xl p-2" />
                         </div>
                     </div>
 

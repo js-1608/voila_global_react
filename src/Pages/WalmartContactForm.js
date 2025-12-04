@@ -73,11 +73,11 @@ export default function ContactFormEmailJS() {
   };
 
   return (
-    <section className="bg-gradient-to-r from-gray-900 to-gray-600 p-2 min-h-[520px]">
+    <section className="bg-gradient-to-r from-blue-900 to-blue-600 p-2 min-h-[520px]">
       <div className="max-w-7xl mx-auto w-full text-center p-2 md:p-6">
         {/* Title */}
         <h2 data-aos="fade-up" className="text-3xl md:text-4xl font-bold text-white mb-1 leading-snug">
-          LOTUS iMALL Onboarding
+          Connect Now
         </h2>
         <p data-aos="fade-up" data-aos-delay="100" className="mt-2 text-sm lg:text-lg text-white max-w-md text-center m-auto mb-2">
           Let's connect with our Ecommerce Account Management Expert for your valuable solution.
@@ -88,9 +88,30 @@ export default function ContactFormEmailJS() {
         <form ref={formRef} onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-2">
           {/* Right column - documents checklist & note */}
           <div>
+            <div className="rounded-xl border border-blue-200 bg-gradient-to-b from-white to-blue-50 p-6 shadow-sm">
+              <div className="flex items-center gap-3 mb-3">
+               
+                <h4 className="text-slate-800 font-semibold">Documents Needed for Registration:</h4>
+              </div>
+
+              <ul className="space-y-3 mt-2">
+                {[
+                  'GST Certificate',
+                  'PAN Card of Proprietor',
+                  'Latest 3 Months Bank Statement',
+                  'Utility Bill (if address differs)',
+                  'IEC and AD Code'
+                ].map((doc) => (
+                  <li key={doc} className="flex items-start gap-3">
+                    <input name="documents" checked type="checkbox" value={doc} className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600" />
+                    <label className="text-slate-700">{doc}</label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             <div className="mt-4 rounded-md border border-yellow-300 bg-yellow-50 p-4">
-              <img src='contact.png' className='rounded-lg hidden md:block'/>
-              <div className="flex items-start gap-3 lg:mt-8">
+              <div className="flex items-start gap-3">
                 <div className="p-1 rounded bg-yellow-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-yellow-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
                     <path d="M9 2a7 7 0 100 14A7 7 0 009 2z" />
@@ -175,7 +196,7 @@ export default function ContactFormEmailJS() {
 
           {/* hidden inputs and honeypot */}
           <input type="hidden" name="documents" value="" />
-          <input type="hidden" name="subject" value="LOTUS iMALL Onboarding" />
+          <input type="hidden" name="subject" value="Walmart Onboarding" />
           <input type="text" name="website" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
         </form>
 
