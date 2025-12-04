@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 walmart
+flipkart
 lotus
 dist
 dist-ssr
