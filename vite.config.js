@@ -12,5 +12,5 @@ export default defineConfig({
     }),
     tailwindcss()
   ],
-  base: '/lotusimall/',
+  // base: '/lotusimall/',
 })
