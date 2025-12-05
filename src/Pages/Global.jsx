@@ -86,7 +86,7 @@ const Global = () => {
 
     return (
         <>
-            <div className={`max-w-7xl mx-auto px-6 py-8 lg:py-16 bg-white transition-all duration-1000 ease-in-out`}>
+            <div className={`max-w-7xl mx-auto px-6 py-8 lg:py-8 bg-white transition-all duration-1000 ease-in-out`}>
                 <div className="max-w-7xl mx-auto">
                     {/* Header Pills */}
                     <div className="gap-3 mb-2 hidden lg:flex">

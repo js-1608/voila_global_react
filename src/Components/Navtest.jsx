@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
+import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Navigation (includes the mega menu "Our Technology")
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Why Us', href: '/about' },
@@ -17,11 +16,10 @@ const Navbar = () => {
       hasDropdown: true,
       isFullWidth: true,
       items: [
-        { title: 'VOILA Kart', logo: '/voilakart.png', href: 'https://voilakart.com/', caption: 'VOILA Kart' },
-        { title: 'VOILA Biz', logo: '/voilabiz.png', href: 'https://voilabiz.com/', caption: 'VOILA Biz' },
-        { title: 'VOILA Studio', logo: '/voilastudio.png', href: 'https://voilastudio.in/', caption: 'VOILA Studio' },
-        { title: 'VOILA Reatil', logo: '/voilareatil.png', href: 'https://voilaretail.com/', caption: 'VOILA Reatil' }
-
+        { title: 'VOILA Kart', logo: '/verticles/kart.png', href: 'https://voilakart.com/', caption: 'VOILA Kart', desc: 'E-commerce solutions' },
+        { title: 'VOILA Biz', logo: '/verticles/biz.png', href: 'https://voilabiz.com/', caption: 'VOILA Biz', desc: 'Business services' },
+        { title: 'VOILA Studio', logo: '/verticles/studio.png', href: 'https://voilastudio.in/', caption: 'VOILA Studio', desc: 'Creative studio' },
+        { title: 'VOILA Retail', logo: '/verticles/retail.png', href: 'https://voilaretail.com/', caption: 'VOILA Retail', desc: 'Retail solutions' }
       ]
     },
     {
@@ -45,31 +43,32 @@ const Navbar = () => {
             { name: 'SEO & SMO', href: '/seo-smo' },
             { name: 'Digital Marketing', href: '/social-media-marketing' },
           ]
+        },
+        {
+          group: 'Global Ecommerce',
+          children: [
+            { name: 'Alibaba', href: '/web-and-app-development' },
+            { name: 'Amazon Global', href: '/seo-smo' },
+            { name: 'Walmart', href: '/social-media-marketing' },
+            { name: 'Noon', href: '/web-and-app-development' },
+            { name: 'Etsy', href: '/seo-smo' },
+            { name: 'eBay', href: '/social-media-marketing' },
+          ]
         }
       ],
       isFullWidth: false
     },
-    // {
-    //   name: 'Our Divisions',
-    //   hasDropdown: true,
-    //   items: [
-    //     { name: 'Voilastudio', href: '/divisions/voilastudio' },
-    //     { name: 'Voilakart', href: '/divisions/voilakart' },
-    //     { name: 'Voilabiz', href: '/divisions/voilabiz' },
-    //     { name: 'Voilaretail', href: '/divisions/voilaretail' },
-    //   ]
-    // },
     { name: 'Partners', href: '/partners' },
-    // {
-    //   name: 'More',
-    //   hasDropdown: true,
-    //   items: [
-    //     { name: 'Blog', href: '/blog' },
-    //     { name: 'Case Studies', href: '/case-studies' },
-    //   ]
-    // },
     { name: 'Contact Us', href: '/contact-us' },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -83,7 +82,6 @@ const Navbar = () => {
     return () => document.removeEventListener('keydown', onKey);
   }, []);
 
-  // Optional: close mega dropdown if clicking outside
   useEffect(() => {
     const onClick = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -111,218 +109,253 @@ const Navbar = () => {
   return (
     <>
       {/* Header */}
-      <header className="sticky top-0 z-50 mx-auto flex w-full items-center justify-between  py-3 transition-all duration-300 border-gray-100 bg-gray-50/90 backdrop-blur-sm border-b px-2 lg:px-10">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Link to="/" className="flex items-center">
-            <img src="/logo.png" alt="Voila logo" className="h-12 w-auto" />
-          </Link>
-        </div>
+      <header
+        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+            ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-gray-900/5'
+            : 'bg-white/95 backdrop-blur-md'
+          }`}
+      >
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <a href="/" className="flex items-center group">
+                <div className="relative">
+                  <img
+                    src="/logo.png"
+                    alt="Voila logo"
+                    className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></div>
+                </div>
+              </a>
+            </div>
 
-        {/* Desktop nav */}
-        <nav className="hidden xl:flex items-center">
-          <ul className="flex items-center gap-2">
-            {navigation.map((item, idx) => (
-              <li
-                key={item.name}
-                className="relative py-2 group"
-                onMouseEnter={() => handleMouseEnter(idx)}
-                onMouseLeave={handleMouseLeave}
-              >
-                {/* Trigger */}
-                {item.hasDropdown ? (
-                  <button
-                    className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100 transition"
-                    aria-haspopup="true"
-                    aria-expanded={activeDropdown === idx}
-                  >
-                    <span>{item.name}</span>
-                    <ChevronDownIcon className={`w-4 h-4 transition-transform ${activeDropdown === idx ? 'rotate-180' : ''}`} />
-                  </button>
-                ) : (
-                  <Link to={item.href} className="px-4 py-2 rounded-full text-sm font-medium text-gray-700 hover:bg-gray-100 transition">
-                    {item.name}
-                  </Link>
-                )}
-
-                {/* Dropdowns */}
-                {item.hasDropdown && activeDropdown === idx && item.isFullWidth && (
-                  // MEGA DROPDOWN (full-width centered panel)
-                  <div ref={dropdownRef}>
-                    {/* small transparent spacer (keeps position) */}
-                    <div className="fixed inset-x-0 top-full z-40 h-6 pointer-events-none" />
-
-                    <div
-                      className="pointer-events-auto fixed left-1/2 top-12 z-50 w-full max-w-[800px] -translate-x-1/2 mt-3 px-6"
-                      role="menu"
-                      aria-label={`${item.name} menu`}
+            {/* Desktop Navigation */}
+            <nav className="hidden xl:flex items-center space-x-1">
+              {navigation.map((item, idx) => (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter(idx)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {item.hasDropdown ? (
+                    <button
+                      className={`flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${activeDropdown === idx
+                          ? 'text-purple-700 bg-purple-50'
+                          : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50'
+                        }`}
                     >
-                      <div className="overflow-hidden rounded-xl border bg-white shadow-[0_10px_30px_rgba(2,6,23,0.08)]">
-                        {/* Columns */}
-                        <div className="px-1 pb-6">
-                          <div className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-4 items-start">
-                            {item.items.map((col) => (
+                      <span>{item.name}</span>
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === idx ? 'rotate-180' : ''
+                          }`}
+                      />
+                    </button>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200"
+                    >
+                      {item.name}
+                    </a>
+                  )}
+
+                  {/* Mega Dropdown for Verticals */}
+                  {item.hasDropdown && activeDropdown === idx && item.isFullWidth && (
+                    <div ref={dropdownRef} className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-screen max-w-5xl">
+                      <div className="bg-white rounded-2xl shadow-2xl shadow-gray-900/10 border border-gray-100 overflow-hidden">
+                        <div className="p-8">
+                          <div className="grid grid-cols-4 gap-6">
+                            {item.items.map((col, i) => (
                               <a
                                 key={col.title}
                                 href={col.href}
-                                className="group flex flex-col items-center text-center px-4 py-6 hover:bg-gray-50 rounded-lg transition"
+                                className="group relative flex flex-col items-center text-center p-6 rounded-xl hover:bg-gradient-to-br hover:from-purple-50 hover:to-pink-50 transition-all duration-300 border border-transparent hover:border-purple-100"
+                                style={{ animationDelay: `${i * 50}ms` }}
                               >
-                                <div className="mb-4 flex h-[96px] w-[220px] items-center justify-center">
-                                  {/* Replace src with your real logo paths */}
-                                  <img src={col.logo} alt={col.title} className="max-h-[80px] object-contain" />
+                                <div className="mb-5 relative">
+                                  <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300 shadow-sm">
+                                    <img
+                                      src={col.logo}
+                                      alt={col.title}
+                                      className="w-28 h-28 object-contain"
+                                    />
+                                  </div>
+                                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-600/0 to-pink-600/0 group-hover:from-purple-600/5 group-hover:to-pink-600/5 transition-all duration-300"></div>
                                 </div>
-                                <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">{col.caption}</p>
+                                <h3 className="text-sm font-semibold text-gray-900 mb-1 group-hover:text-purple-700 transition-colors">
+                                  {col.caption}
+                                </h3>
+                                <p className="text-xs text-gray-500 group-hover:text-gray-700 transition-colors">
+                                  {col.desc}
+                                </p>
+                                <ArrowRight className="w-4 h-4 text-purple-600 opacity-0 group-hover:opacity-100 mt-2 transition-all duration-300 transform group-hover:translate-x-1" />
                               </a>
                             ))}
                           </div>
                         </div>
-
-                        {/* thin colored bottom border like reference */}
-                        <div className="h-1 bg-gradient-to-r from-transparent via-[#662D91] to-transparent" />
+                        <div className="h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600"></div>
                       </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {/* Non-fullwidth dropdown (simple dropdown or grouped lists) */}
-                {item.hasDropdown && activeDropdown === idx && !item.isFullWidth && (
-                  <div className="absolute left-1/2 top-12 z-50  -translate-x-1/2 w-[320px] rounded-lg border bg-white shadow-lg">
-                    <div className="p-4">
-                      {/* If grouped (services) */}
-                      {item.items && item.items[0] && item.items[0].children ? (
-                        <div className="grid grid-cols-1 gap-4">
-                          {item.items.map((g, gi) => (
-                            <div key={gi}>
-                              <h4 className="mb-2 text-sm font-semibold text-gray-700">{g.group}</h4>
-                              <ul className="space-y-2">
-                                {g.children.map((s) => (
-                                  <li key={s.name}>
-                                    <Link to={s.href} className="text-sm text-gray-600 hover:text-gray-900">
-                                      {s.name}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
+                  {/* Regular Dropdown for Services */}
+                  {item.hasDropdown && activeDropdown === idx && !item.isFullWidth && (
+                    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-[720px]">
+                      <div className="bg-white rounded-2xl shadow-2xl shadow-gray-900/10 border border-gray-100 overflow-hidden">
+                        <div className="p-8">
+                          <div className="grid grid-cols-3 gap-8">
+                            {item.items.map((g, gi) => (
+                              <div key={gi} className="flex flex-col">
+                                <h4 className="text-sm font-bold text-gray-900 mb-4 pb-3 border-b-2 border-purple-600 text-center">
+                                  {g.group}
+                                </h4>
+                                <ul className="space-y-2 flex-1">
+                                  {g.children.map((s) => (
+                                    <li key={s.name}>
+                                      <a
+                                        href={s.href}
+                                        className="flex items-center gap-2 px-3 py-2.5 text-sm text-gray-700 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-all duration-200 group"
+                                      >
+                                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-purple-600 transition-colors"></span>
+                                        {s.name}
+                                      </a>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      ) : (
-                        <ul className="space-y-2">
-                          {item.items.map((s) => (
-                            <li key={s.name}>
-                              <Link to={s.href} className="text-sm text-gray-600 hover:text-gray-900">
-                                {s.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                        <div className="h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600"></div>
+                      </div>
                     </div>
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
-        </nav>
+                  )}
+                </div>
+              ))}
+            </nav>
 
-        {/* CTA (desktop) */}
-        <div className="hidden xl:flex items-center">
-          <Link to="/contact-us" className="px-5 py-2 rounded-full bg-[#662D91] text-white text-sm font-medium shadow">
-            Get started
-          </Link>
-        </div>
+            {/* CTA Button */}
+            <div className="hidden xl:flex items-center">
+              <a
+                href="/contact-us"
+                className="group relative px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-900 via-55% to-pink-600 text-white text-sm font-medium shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40 transition-all duration-300 overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  Get Started
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </a>
+            </div>
 
-        {/* Mobile menu button */}
-        <div className="xl:hidden">
-          <button
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center"
-            aria-label="Open menu"
-          >
-            <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="xl:hidden p-2.5 rounded-xl bg-gray-50 hover:bg-gray-100 text-gray-700 transition-colors duration-200"
+              aria-label="Open menu"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* Mobile sidebar */}
-      <aside className={`fixed inset-y-0 right-0 z-[999] w-full sm:w-1/2 bg-white dark:bg-gray-800 transform transition-transform duration-300 ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="p-5 sm:p-8 h-full flex flex-col">
-          <div className="flex items-center justify-between mb-4">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+      {/* Mobile Sidebar */}
+      <div
+        className={`fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-[100] transition-opacity duration-300 xl:hidden ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+
+      <aside
+        className={`fixed inset-y-0 right-0 z-[101] w-full sm:w-96 bg-white shadow-2xl transform transition-transform duration-300 ease-out xl:hidden ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+      >
+        <div className="h-full flex flex-col">
+          {/* Mobile Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-100">
+            <a href="/" onClick={() => setIsMobileMenuOpen(false)}>
               <img src="/logo.png" alt="logo" className="h-10" />
-            </Link>
-            <button onClick={() => setIsMobileMenuOpen(false)} className="h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </a>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
+            >
+              <X className="w-5 h-5 text-gray-700" />
             </button>
           </div>
 
-          <div className="overflow-y-auto mb-6">
-            <ul className="space-y-1">
+          {/* Mobile Navigation */}
+          <div className="flex-1 overflow-y-auto p-6">
+            <ul className="space-y-2">
               {navigation.map((item, idx) => (
-                <li key={item.name} className="border-b border-gray-100">
+                <li key={item.name}>
                   {item.hasDropdown ? (
-                    <>
+                    <div>
                       <button
                         onClick={() => toggleMobileSubmenu(idx)}
-                        className="w-full px-4 py-3 flex items-center justify-between text-left text-gray-700"
-                        aria-expanded={activeMobileSubmenu === idx}
+                        className="w-full flex items-center justify-between px-4 py-3 text-left text-gray-700 font-medium hover:bg-gray-50 rounded-xl transition-colors"
                       >
                         <span>{item.name}</span>
-                        <ChevronDownIcon className={`w-4 h-4 transition-transform ${activeMobileSubmenu === idx ? 'rotate-90' : '-rotate-90'}`} />
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${activeMobileSubmenu === idx ? 'rotate-180' : ''
+                            }`}
+                        />
                       </button>
 
                       {activeMobileSubmenu === idx && (
-                        <div className="pl-4 bg-white">
-                          {/* For the mega menu, show items stacked on mobile */}
+                        <div className="mt-2 ml-4 space-y-1 border-l-2 border-purple-200 pl-4">
                           {item.isFullWidth ? (
-                            <div className="py-2">
-                              {item.items.map((col) => (
-                                <Link key={col.title} to={col.href} onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-gray-700">
-                                  {col.caption}
-                                </Link>
-                              ))}
-                            </div>
+                            item.items.map((col) => (
+                              <a
+                                key={col.title}
+                                href={col.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block py-2 px-3 text-sm text-gray-600 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
+                              >
+                                {col.caption}
+                              </a>
+                            ))
                           ) : (
-                            // grouped or simple menus
-                            <div className="py-2">
-                              {item.items && item.items[0] && item.items[0].children ? (
-                                item.items.map((g, gi) => (
-                                  <div key={gi} className="py-2">
-                                    <h4 className="text-sm font-semibold text-gray-700 mb-1">{g.group}</h4>
-                                    {g.children.map((s) => (
-                                      <Link key={s.name} to={s.href} onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-gray-700">
-                                        {s.name}
-                                      </Link>
-                                    ))}
-                                  </div>
-                                ))
-                              ) : (
-                                item.items.map((s) => (
-                                  <Link key={s.name} to={s.href} onClick={() => setIsMobileMenuOpen(false)} className="block py-2 text-gray-700">
+                            item.items.map((g, gi) => (
+                              <div key={gi} className="py-2">
+                                <h4 className="text-xs font-bold uppercase tracking-wider text-purple-600 mb-2 px-3">
+                                  {g.group}
+                                </h4>
+                                {g.children.map((s) => (
+                                  <a
+                                    key={s.name}
+                                    href={s.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="block py-2 px-3 text-sm text-gray-600 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
+                                  >
                                     {s.name}
-                                  </Link>
-                                ))
-                              )}
-                            </div>
+                                  </a>
+                                ))}
+                              </div>
+                            ))
                           )}
                         </div>
                       )}
-                    </>
+                    </div>
                   ) : (
-                    <Link to={item.href} onClick={() => setIsMobileMenuOpen(false)} className="block px-4 py-3 text-gray-700">
+                    <a
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-xl transition-colors"
+                    >
                       {item.name}
-                    </Link>
+                    </a>
                   )}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="mt-auto">
-            <Link to="/contact-us" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center px-4 py-3 rounded-full bg-[#662D91] text-white">
-              Get started
-            </Link>
-          </div>
+
         </div>
       </aside>
     </>

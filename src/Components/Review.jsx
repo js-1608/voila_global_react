@@ -94,7 +94,7 @@ const Review = () => {
   const TestimonialCard = ({ testimonial }) => (
     <div className="relative group mt-12">
       {/* Profile Image */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+      {/* <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <div className="relative">
           <img
             src={testimonial.image}
@@ -102,7 +102,7 @@ const Review = () => {
             className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-lg"
           />
         </div>
-      </div>
+      </div> */}
 
       {/* Card Shadow */}
       <div className="absolute inset-0 bg-[#662D9166] rounded-3xl transform rotate-6 opacity-40"></div>
