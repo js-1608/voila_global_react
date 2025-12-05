@@ -111,7 +111,7 @@ const opportunities = [
 export default function Flipkart() {
   // WhatsApp href (was missing previously)
   const href = `https://wa.me/919810554548?text=${encodeURIComponent(
-    "Hi, can I get more information for Walmart onboarding?"
+    "Hello! I’m interested in selling on Flipkart."
   )}`;
 
   const features2 = [
@@ -298,9 +298,9 @@ export default function Flipkart() {
           </div>
 
           <div className="text-center mt-6">
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-lg transition">
+            <Link to={href} className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-3 rounded-lg transition">
               GET STARTED FOR FREE
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -323,9 +323,9 @@ export default function Flipkart() {
               grow through networks and platforms to build a thriving business.
             </p>
 
-            <button className="mt-6 inline-flex items-center rounded-full border border-amber-300 px-6 py-2 text-sm font-medium hover:bg-amber-300 hover:text-black transition">
+            <Link to={href} className="mt-6 inline-flex items-center rounded-full border border-amber-300 px-6 py-2 text-sm font-medium hover:bg-amber-300 hover:text-black transition">
               Talk to an expert
-            </button>
+            </Link>
           </div>
 
           <div className="flex justify-center lg:justify-end">
