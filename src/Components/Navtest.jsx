@@ -60,14 +60,14 @@ const Navbar = () => {
     //   ]
     // },
     { name: 'Partners', href: '/partners' },
-    {
-      name: 'More',
-      hasDropdown: true,
-      items: [
-        { name: 'Blog', href: '/blog' },
-        { name: 'Case Studies', href: '/case-studies' },
-      ]
-    },
+    // {
+    //   name: 'More',
+    //   hasDropdown: true,
+    //   items: [
+    //     { name: 'Blog', href: '/blog' },
+    //     { name: 'Case Studies', href: '/case-studies' },
+    //   ]
+    // },
     { name: 'Contact Us', href: '/contact-us' },
   ];
 
