@@ -3,44 +3,125 @@ import heroMockups from "/partners.png"; // put your composite image here
 
 const partnersData = [
   {
-    name: "2Coders",
-    logo: "/marketplace_logos/WalMart_Logo.png",
-    description:
-      "2Coders Studio is a custom software development company driven by a creative and meaningful approach for designing digital solutions with the users in mind.",
-    category: "solution",
-    tags: ["Solution Partners", "Dev Firm", "S&E Dev", "Studio"],
+    "name": "Alibaba",
+    "logo": "/marketplace_logos/Alibaba_Logo.png",
+    "description": "Our partnership with Alibaba opens up a global B2B network for sellers, connecting them with wholesale buyers across 190+ countries. Through this collaboration, VOILA enables businesses to navigate international trade, showcase their products effectively, and scale operations globally while leveraging Alibaba’s trusted platform.",
+    "category": "global_ecommerce",
+    "tags": ["Solution Partners", "Marketplace", "B2B", "Global"]
   },
   {
-    name: "3Play Media",
-    logo: "https://via.placeholder.com/100x40?text=3PlayMedia",
-    description:
-      "3Play Media is the premium, full-service video accessibility solution for enterprise clients.",
-    category: "platform",
-    tags: ["Platform Partners", "Accessibility", "Captioning", "Encoding"],
+    "name": "Walmart",
+    "logo": "/marketplace_logos/WalMart_Logo.png",
+    "description": "VOILA connects sellers to Walmart’s vast online marketplace, providing access to millions of customers in the US and beyond. Sellers benefit from streamlined onboarding, product visibility, and efficient marketplace management, helping them grow their reach and establish a strong presence on one of the world’s leading retail platforms.",
+    "category": "global_ecommerce",
+    "tags": ["Solution Partners", "Marketplace", "Retail", "US Market"]
   },
   {
-    name: "A Different Engine",
-    logo: "https://via.placeholder.com/100x40?text=Engine",
-    description:
-      "A Different Engine is a digital product design and development agency building cross-platform experiences for media and entertainment brands.",
-    category: "solution",
-    tags: ["Solution Partners", "Dev Firm", "Monetization", "Studio"],
+    "name": "Tata CLiQ",
+    "logo": "/marketplace_logos/TataCliQ_Logo.png",
+    "description": "Through Tata CLiQ, VOILA helps sellers position their products on a premium Indian marketplace offering fashion, electronics, and lifestyle items. By optimizing listings and enhancing visibility, sellers can engage with a quality-conscious audience and drive meaningful sales growth.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Marketplace", "India", "Lifestyle"]
   },
   {
-    name: "Abstract Partners",
-    logo: "https://via.placeholder.com/100x40?text=Abstract",
-    description:
-      "Abstract Partners helps building commerce companies grow by providing engineering, product, and design support.",
-    category: "global_ecommerce",
-    tags: ["Solution Partners", "Design", "Monetization", "Studio"],
+    "name": "Amazon",
+    "logo": "/marketplace_logos/Amazon_Logo.png",
+    "description": "Amazon serves millions of customers globally, and VOILA supports sellers in navigating this dynamic marketplace. From managing product listings to optimizing visibility and performance, VOILA ensures sellers can efficiently scale their operations and achieve sustainable growth on the platform.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Marketplace", "Global", "E-commerce"]
   },
-];
+  {
+    "name": "Blinkit",
+    "logo": "/marketplace_logos/BlinkIt_Logo.png",
+    "description": "VOILA brings sellers onto Blinkit, India’s ultra-fast grocery delivery service. By helping manage inventory, optimize listings, and ensure timely product availability, sellers can meet the high-speed demands of urban customers and grow within this fast-paced marketplace.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Grocery", "Quick Commerce", "India"]
+  },
+  {
+    "name": "Zepto",
+    "logo": "/marketplace_logos/Zepto_Logo.png",
+    "description": "Through Zepto, VOILA enables sellers to tap into the ultra-rapid grocery delivery segment, ensuring their products are listed accurately and reach customers quickly. This partnership helps sellers maintain operational efficiency and strengthen their presence on a high-demand platform.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Quick Commerce", "Grocery", "India"]
+  },
+  {
+    "name": "Nykaa",
+    "logo": "/marketplace_logos/Nykaa_Logo.png",
+    "description": "VOILA’s collaboration with Nykaa empowers sellers in India’s leading beauty and cosmetics marketplace. By facilitating smooth onboarding, enhancing product visibility, and providing guidance on marketplace strategies, sellers can connect with an engaged customer base and boost sales.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Beauty", "Cosmetics", "India"]
+  },
+  {
+    "name": "Meesho",
+    "logo": "/marketplace_logos/Meesho_Logo.png",
+    "description": "Meesho’s social commerce platform allows individuals and small businesses to sell online, and VOILA expands sellers’ reach across this growing network. By managing listings and optimizing product presence, sellers can effectively leverage Meesho’s social channels to drive engagement and sales.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Social Commerce", "India", "SMB"]
+  },
+  {
+    "name": "Ajio",
+    "logo": "/marketplace_logos/aJIO_Logo.png",
+    "description": "VOILA connects sellers with Ajio, Reliance’s fashion and lifestyle marketplace. Sellers benefit from optimized listings, stronger product presentation, and strategic guidance that enhances engagement with fashion-conscious shoppers across India.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Fashion", "Lifestyle", "India"]
+  },
+  {
+    "name": "Myntra",
+    "logo": "/marketplace_logos/Myntra_Logo.png",
+    "description": "Through Myntra, VOILA facilitates seamless seller integration, helping manage product listings and maintain high visibility. This collaboration allows sellers to reach India’s top fashion audience, engage shoppers effectively, and scale their e-commerce presence.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Fashion", "E-commerce", "India"]
+  },
+  {
+    "name": "eBay",
+    "logo": "/marketplace_logos/Ebay_Logo.png",
+    "description": "VOILA partners with sellers on eBay’s global marketplace to reach buyers worldwide. By providing guidance on listing management, visibility optimization, and marketplace navigation, sellers can expand their international footprint efficiently.",
+    "category": "global_ecommerce",
+    "tags": ["Solution Partners", "Marketplace", "Global", "Retail"]
+  },
+  {
+    "name": "IndiaMart",
+    "logo": "/marketplace_logos/IndiaMart_Logo.png",
+    "description": "VOILA enables sellers to access IndiaMart, India’s largest B2B platform, providing opportunities to connect with thousands of buyers across industries. Sellers gain streamlined operations, better visibility, and scalable wholesale growth through this partnership.",
+    "category": "platform",
+    "tags": ["Solution Partners", "B2B", "India", "Wholesale"]
+  },
+  {
+    "name": "Flipkart",
+    "logo": "/marketplace_logos/FlipKart_Logo.png",
+    "description": "Through Flipkart, VOILA supports sellers in managing listings, increasing product visibility, and maximizing reach on one of India’s largest marketplaces. This partnership helps sellers grow their business while navigating Flipkart’s dynamic ecosystem.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Marketplace", "India", "Retail"]
+  },
+  {
+    "name": "Etsy",
+    "logo": "/marketplace_logos/Etsy_Logo.png",
+    "description": "VOILA helps sellers showcase unique, handmade, and vintage products on Etsy, reaching a global audience of niche buyers. Through this collaboration, sellers receive guidance on listing management and marketplace strategies to drive exposure and sales.",
+    "category": "global_ecommerce",
+    "tags": ["Solution Partners", "Handmade", "Vintage", "Global"]
+  },
+  {
+    "name": "LotusImall",
+    "logo": "/marketplace_logos/lotus.png",
+    "description": "VOILA’s collaboration with LotusImall helps sellers list and manage products on this growing Indian online retail platform. By enhancing visibility and streamlining marketplace operations, sellers can establish a strong presence and grow effectively.",
+    "category": "platform",
+    "tags": ["Solution Partners", "Marketplace", "India", "Retail"]
+  },
+   {
+    "name": "Godrej  Nirmaan",
+    "logo": "/marketplace_logos/nirmaan.png",
+    "description": "Nirmaan is a business solution by Godrej that empowers Micro, Small, and Medium Enterprises (MSMEs) with tools, resources, and market opportunities to scale efficiently. VOILA’s collaboration with Nirmaan empowers MSMEs to strengthen their online presence and unlock opportunities for eCommerce growth.",
+    "category": "Msme",
+    "tags": ["Solution Partners", "Marketplace", "India", "Retail"]
+  }
+]
+
 
 const categories = [
   { key: "all", label: "All" },
   { key: "global_ecommerce", label: "Global Ecommerce" },
-  { key: "platform", label: "Platform Partners" },
-  { key: "solution", label: "Solution Partners" },
+  { key: "platform", label: "Ecommerce Partners" },
+  { key: "Msme", label: "Solution Partners" },
 ];
 
 const agencyPartners = [
@@ -91,10 +172,7 @@ export default function PartnersPage() {
                 With a diverse network of global and Indian partners, we provide
                 brands access to powerful growth channels, trusted ecosystems,
                 and opportunities to scale their digital journey.
-                <br /> <br /> Our Network of Leading eCommerce Partners
-                Leveraging 8+ years of experience with trusted eCommerce
-                platforms, we guide sellers across top marketplaces for seamless
-                access, optimized presence, and scalable growth.
+              
               </p>
 
               {/* search / CTA */}
@@ -200,12 +278,10 @@ export default function PartnersPage() {
         {/* Header */}
         <div className="text-center mb-12 mt-12">
           <h1 className="text-3xl md:text-4xl font-extrabold mb-4 leading-tight">
-            VOILA PARTNERS HELP YOU BUILD BETTER VIDEO. PERIOD.
+           Our Network of Leading eCommerce Partners
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            VOILA's partners help you to tackle the challenges you run into
-            while creating the most flawless video experience for your
-            customers.
+          <p className="text-gray-600 max-w-3xl mx-auto">
+           Leveraging 8+ years of experience with trusted eCommerce platforms, we guide sellers across top marketplaces for seamless access, optimized presence, and scalable growth.
           </p>
         </div>
 
@@ -236,7 +312,7 @@ export default function PartnersPage() {
               <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-10 mb-4 object-contain"
+                className="h-16 mb-4 object-contain"
               />
               <h3 className="text-lg font-semibold mb-2">{partner.name}</h3>
               <p className="text-sm text-gray-600 mb-4">

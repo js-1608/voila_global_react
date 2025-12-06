@@ -3,7 +3,6 @@ import { Camera, Users, TrendingUp, ArrowRight, Phone, Store } from 'lucide-reac
 import Client from '../Components/Client';
 import Review from '../Components/Review';
 import FAQ from '../Components/Faq';
-import BrandingQuoteSection from '../Components/Section';
 import ContactCta from '../Components/ContactCta';
 import Service from '../Components/Services';
 import Button_Gradient from '../Components/Button_Gradient';
