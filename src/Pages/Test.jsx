@@ -1,73 +1,19 @@
+import { Camera } from 'lucide-react';
 import React from 'react';
 
 
-export default function HeroCards(){
+export default function HeroCards() {
   return (
     <>
-    <section className="bg-white py-16">
-      <div className="container mx-auto px-6">
-        {/* Heading */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Where Simplicity<br/>Meets Financial Power</h1>
-          <p className="mt-4 text-gray-500">We’re redefining how people think about money—with clean design, powerful insights, and a clear mission to make finance better</p>
-        </div>
 
-        {/* Visual area */}
-        <div className="mt-12 relative flex justify-center items-center">
-          {/* soft vignette / angled background */}
-          {/* <div className="absolute inset-x-0 top-20 flex justify-center pointer-events-none">
-            <div className="w-full max-w-4xl h-40 md:h-56 bg-gradient-to-t from-purple-50 to-white transform -skew-y-6 rounded-3xl opacity-90" />
-          </div> */}
-
-          {/* cards stack */}
-          <div className="relative z-10 flex items-center justify-center space-x-6 md:space-x-10 -mt-8">
-            {/* left card */}
-            <div className="relative transform -rotate-12 md:-rotate-6 shadow-2xl rounded-3xl overflow-hidden bg-gradient-to-r from-orange-400 to-orange-300 w-48 md:w-56 h-28 md:h-36 flex items-center justify-center">
-              <img src="/images/card-left-placeholder.png" alt="card left" className="w-full h-full object-cover opacity-0" />
-              <div className="absolute left-4 top-3 text-white text-xs font-semibold">DISCOVER</div>
-              <div className="absolute right-4 bottom-3 text-white font-bold text-lg">3</div>
-            </div>
-
-            {/* center card */}
-            <div className="relative transform rotate-0 shadow-2xl rounded-3xl overflow-hidden bg-gradient-to-r from-violet-500 to-indigo-500 w-56 md:w-64 h-36 md:h-44 flex items-center justify-center">
-              <img src="/images/card-center-placeholder.png" alt="card center" className="w-full h-full object-cover opacity-0" />
-              <div className="absolute left-4 top-3 text-white text-xs font-semibold">Apple Pay</div>
-              <div className="absolute right-4 bottom-3 text-white font-bold text-xl">3208</div>
-            </div>
-
-            {/* right card */}
-            <div className="relative transform rotate-12 md:rotate-6 shadow-2xl rounded-3xl overflow-hidden bg-gradient-to-r from-gray-800 to-gray-700 w-48 md:w-56 h-28 md:h-36 flex items-center justify-center">
-              <img src="/images/card-right-placeholder.png" alt="card right" className="w-full h-full object-cover opacity-0" />
-              <div className="absolute left-4 top-3 bg-white/90 px-2 py-1 rounded-full text-xs font-medium text-gray-800">amazon</div>
-              <div className="absolute right-4 bottom-3 text-white font-bold text-lg">3208</div>
-            </div>
-          </div>
-
-          {/* floating brand badges */}
-          <div className="absolute z-20 left-1/4 top-6 md:top-10 -translate-x-1/2">
-            <Badge label="DISCOVER" className="-ml-6"/>
-          </div>
-          <div className="absolute z-20 top-0 md:top-6">
-            <Badge label="Apple Pay" />
-          </div>
-          <div className="absolute z-20 right-1/4 top-6 md:top-10 translate-x-1/2">
-            <Badge label="amazon" />
-          </div>
-          <div className="absolute z-20 right-0 top-24 md:top-28">
-            <Badge label="PayPal" />
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <VerticalsMinimalLuxury/>
-    <AwardsSection/>
-    {/* <img src="https://voilastudio.in/assets/frontpage/assets/images/Newcategory/verticals.webp" alt="verticals" className="w-full "/> */}
+      <VerticalsMinimalLuxury />
+      <AwardsSection />
+      {/* <img src="https://voilastudio.in/assets/frontpage/assets/images/Newcategory/verticals.webp" alt="verticals" className="w-full "/> */}
     </>
   );
 }
 
-function Badge({ label, className = '' }){
+function Badge({ label, className = '' }) {
   return (
     <div className={`inline-flex items-center justify-center bg-white/95 shadow-xl rounded-full px-4 py-2 text-sm font-medium ${className}`}>
       <span className="mr-2 h-4 w-4 rounded-full bg-gray-200 flex items-center justify-center text-xs">{label.charAt(0)}</span>
@@ -93,46 +39,46 @@ function Badge({ label, className = '' }){
 
 const items = [
   {
-    id: "voilabiz",
-    title: "VOILABIZ",
-    subtitle: "Enterprise Solutions",
-    desc: "Custom catalog & media workflows, integrations and SLA-driven delivery.",
-    href: "/voilabiz",
-    icon: "/icons/voilabiz.svg",
+    id: "VoilaStudio",
+    title: "VOILA Studio",
+    subtitle: "Ecommerce Studio",
+    desc: "India’s leading eCommerce photography studio, specializing in product and fashion shoots for categories like apparel, accessories, beauty, lifestyle, home, electronics, and more. Our team of skilled photographers, stylists, editors, and professional models delivers high-quality visuals that make your products stand out and drive brand growth across major eCommerce platforms.",
+    href: "https://voilastudio.in/",
+    icon: "/verticles/studio.png",
   },
   {
-    id: "voilaretail",
-    title: "VOILARETAIL",
-    subtitle: "Retail Services",
-    desc: "In-store displays, visual merchandising and retail-ready imagery.",
-    href: "/voilaretail",
-    icon: "/icons/voilaretail.svg",
+    id: "VoilaBiz",
+    title: "VOILA Biz",
+    subtitle: "Ecommerce Solutions",
+    desc: " The growth engine for MSMEs and Startups, driving up to 7x growth for brands through brand building, scaling strategies, consultancy, website development, digital marketing, marketplace onboarding, and international business support.",
+    href: "https://voilabiz.com/",
+    icon: "/verticles/biz.png",
   },
   {
-    id: "voilastudio",
-    title: "VOILASTUDIO",
-    subtitle: "Photography",
-    desc: "Studio, model & lifestyle photography with premium retouching.",
-    href: "/voilastudio",
-    icon: "/icons/voilastudio.svg",
+    id: "VOILA Kart",
+    title: "VOILA Retail",
+    subtitle: "Reatil",
+    desc: "We act as an eDistributor, eWholesaler, and eRetailer by buying products and selling them online in India and international markets. As the merchant on record, we help artisans, SMEs, and manufacturers scale their business, find international buyers, and export their products with ease.",
+    href: "https://voilaretail.com/",
+    icon: "/verticles/retail.png",
   },
   {
     id: "voilakart",
     title: "VOILAKART",
     subtitle: "E-commerce",
-    desc: "Listing creation, 360° spins and conversion-focused assets.",
-    href: "/voilakart",
-    icon: "/icons/voilakart.svg",
+    desc: " VOILAKart offers a wide range of products, including home and kitchen solutions, wooden and leatherite items, kids’ games, gaming consoles, pet care, and auto accessories. Carefully curated for quality and convenience, it makes shopping simple, reliable, and suited for modern households.",
+    href: "https://voilakart.com/",
+    icon: "/verticles/kart.png",
   },
 ];
 
-export  function VerticalsMinimalLuxury() {
+export function VerticalsMinimalLuxury() {
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto ">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Our Vertical Expertise
+            Our Core Verticals
           </h2>
           <p className="mt-3 text-gray-500">
             Four focused teams delivering specialized outcomes — choose the
@@ -140,29 +86,27 @@ export  function VerticalsMinimalLuxury() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {items.map((it) => (
             <a
               key={it.id}
               href={it.href}
+              target='_blank'
               className="group block bg-white rounded-2xl border border-gray-100 shadow-sm
-                         p-8 text-left transition transform hover:-translate-y-2 hover:shadow-xl
+                         p-2 text-left transition transform hover:-translate-y-2 hover:shadow-xl
                          focus:outline-none focus:ring-4 focus:ring-indigo-50"
               aria-label={`${it.title} — ${it.subtitle}`}
             >
               {/* icon area */}
-              <div className="flex items-center justify-center w-20 h-20 mx-auto rounded-lg
+              <div className="flex items-center justify-center  mx-auto rounded-lg
                               bg-gradient-to-b from-white to-gray-50 ring-1 ring-gray-100">
                 {/* Use SVG for crispness; fallback to img if needed */}
                 <img
                   src={it.icon}
                   alt={`${it.title} logo`}
-                  className="w-12 h-12 object-contain"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect fill='%23E5E7EB' width='100%25' height='100%25'/%3E%3C/svg%3E";
-                  }}
+                  className="object-contain"
                 />
+
               </div>
 
               {/* title */}
@@ -170,18 +114,18 @@ export  function VerticalsMinimalLuxury() {
                 {it.title}
               </h3>
 
-              <div className="mt-1 text-center text-indigo-600 text-sm font-medium">
+              <div className="mt-1 text-center text-indigo-600 text-sm font-medium ">
                 {it.subtitle}
               </div>
 
-              <p className="mt-4 text-center text-sm text-gray-500">{it.desc}</p>
+              <p className="mt-4  text-sm text-gray-500 text-justify">{it.desc}</p>
 
               <div className="mt-6 flex items-center justify-center">
                 <span
                   className="text-sm text-gray-400 group-hover:text-indigo-600 group-focus:text-indigo-600
                              transition inline-flex items-center gap-2"
                 >
-                  Learn more
+                  Visit  Website
                   <svg
                     className="w-4 h-4 transform group-hover:translate-x-1 transition"
                     fill="none"
@@ -230,21 +174,26 @@ const awards = [
   { year: '2022', title: 'Innovation in Visual Commerce', issuer: 'CommerceX', desc: 'Awarded for tooling and automation in catalog workflows.' },
 ];
 
-const logos = [
-  '/logos/media1.png',
-  '/logos/media2.png',
-  '/logos/media3.png',
-  '/logos/media4.png',
-  '/logos/media5.png',
+const certificate = [
+  '/awards/award_1.webp',
+  '/awards/award_2.webp',
+  '/awards/award_3.webp',
+  '/awards/award_4.webp',
+  '/awards/award_5.webp',
+  '/awards/award_6.webp',
+  '/awards/award_7.webp',
 ];
 
-export  function AwardsSection(){
+export function AwardsSection() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-extrabold">Awards & Recognitions</h2>
-          <p className="mt-3 text-gray-600">We’re proud to be recognised by industry bodies and partners for creative excellence and operational innovation.</p>
+        <div className="text-center max-w-6xl mx-auto">
+          <h2 className="text-3xl font-extrabold">Our Vision</h2>
+          <p className="mt-3 text-gray-600 text-sm">
+            Whether you are an emerging entrepreneur, a growing MSME, or a global brand, our mission is to amplify your brand presence, drive sustainable growth, and open new horizons in both domestic and international markets. At VOILAGlobal, we don’t just provide services — we become your strategic partner, combining technology, creativity, and market expertise to turn business vision into measurable success.
+            <br /><br />We aim to empower brands of all sizes to compete confidently in the digital-first world, scale efficiently, and expand across borders with ease. By building lasting partnerships, delivering actionable strategies, and enabling seamless access to new markets, we ensure that every brand we work with not only grows but thrives in an increasingly competitive landscape.
+          </p>
         </div>
 
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -287,19 +236,6 @@ export  function AwardsSection(){
             </div>
           </aside>
         </div>
-
-        {/* Partner / media logos */}
-        <div className="mt-10 bg-white rounded-2xl p-6 shadow-sm">
-          <h5 className="text-sm text-gray-500">Featured in</h5>
-          <div className="mt-4 flex items-center gap-6 flex-wrap justify-center">
-            {logos.map((src, i) => (
-              <div key={i} className="w-28 h-12 flex items-center justify-center grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition">
-                <img src={src} alt={`logo ${i+1}`} className="max-h-10 object-contain"/>
-              </div>
-            ))}
-          </div>
-        </div>
-
       </div>
     </section>
   );
