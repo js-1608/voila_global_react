@@ -1,0 +1,20 @@
+# /path/to/site/.htaccess  (place this in the folder that contains index.html)
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Optional: force HTTPS + canonical www or non-www (uncomment / edit if needed)
+  # RewriteCond %{HTTPS} !=on
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # If the request is for an existing file or directory, serve it directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Otherwise rewrite all requests to index.html (SPA entry)
+  RewriteRule ^ /index.html [L,QSA]
+</IfModule>
+
+# If mod_rewrite unavailable, fall back to 404 -> index (optional)
+ErrorDocument 404 /index.html

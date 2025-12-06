@@ -120,10 +120,10 @@ export default function About() {
                             <div className="sticky top-28 bg-white p-6 rounded-2xl shadow">
                                 <h4 className="font-semibold">Why VOILA</h4>
                                 <ul className="mt-4 space-y-3 text-sm text-gray-600">
-                                    <li>ISO-style studio lighting</li>
-                                    <li>Fast turnarounds & bulk pricing</li>
-                                    <li>Dedicated account manager</li>
-                                    <li>Secure cloud delivery</li>
+                                    <li>8+ years of eCommerce and digital expertise</li>
+                                    <li>Industry-leading marketplace and eCommerce experts</li>
+                                    <li>Trusted partnerships with top global and Indian platforms</li>
+                                    <li>Driving scalable growth for sellers across marketplaces</li>
                                 </ul>
 
                                 <div className="mt-6">

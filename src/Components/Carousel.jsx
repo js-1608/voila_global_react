@@ -1,76 +1,73 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// ---- Logo Imports ----
-
 const logos = [
-    'logos/1.webp',
-    'logos/2.webp',
-    'logos/3.webp',
-    'logos/4.webp',
-    'logos/5.webp',
-    'logos/6.webp',
-    'logos/7.webp',
-    'logos/8.webp',
+    '/logos/1.webp', '/logos/2.webp', '/logos/3.webp', '/logos/4.webp',
+    '/logos/5.webp', '/logos/6.webp', '/logos/7.webp', '/logos/8.webp',
 ];
 
 const Carousel = () => {
+    const sliderRef = useRef(null);
+
     const settings = {
         dots: false,
         infinite: true,
-        arrows: false,                    // Hide default arrows for clean look
-        slidesToShow: 5,                  // Adjust for desktop
+        arrows: false,
+        slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 0,                 // Must be 0 for continuous scroll
-        speed: 10000,                       // High speed for smooth scrolling
-        cssEase: 'linear',                // Linear for smooth continuous scroll
+        autoplaySpeed: 2000,   // non-zero; safer on mobile
+        speed: 10000,
+        cssEase: 'linear',
         pauseOnHover: true,
+        variableWidth: false,
+        adaptiveHeight: false,
         responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 4,
-                },
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 2,
-                },
-            },
+            { breakpoint: 1024, settings: { slidesToShow: 4 } },
+            { breakpoint: 768, settings: { slidesToShow: 3 } },
+            { breakpoint: 480, settings: { slidesToShow: 2 } },
         ],
     };
 
-    return (
-
-        < Slider {...settings}>
-            {
-                logos.map((logo, index) => (
-                    <div
-                        key={index}
-                        className="flex items-center justify-center px-4 py-4"
-                    >
-                        <div className="w-32 h-24 border rounded-lg bg-white flex items-center justify-center shadow-sm hover:shadow-md transition">
-                            <img
-                                src={logo}
-                                alt={`Logo ${index + 1}`}
-                                className="max-h-20 max-w-[80%] object-contain"
-                            />
-                        </div>
-                    </div>
-                ))
+    // Force a reflow / resize after mount (helps slick recalc widths).
+    useEffect(() => {
+        const resizeOnce = () => window.dispatchEvent(new Event('resize'));
+        // After mount
+        setTimeout(resizeOnce, 100);
+        // Also trigger after all images finish loading (in case images determine width)
+        let loaded = 0;
+        const imgs = document.querySelectorAll('.slick-img');
+        if (imgs.length === 0) { resizeOnce(); }
+        imgs.forEach(img => {
+            if (img.complete) {
+                loaded++;
+            } else {
+                img.addEventListener('load', () => {
+                    loaded++;
+                    if (loaded === imgs.length) resizeOnce();
+                }, { once: true });
             }
-        </Slider >
+        });
+        // cleanup not strictly needed here
+    }, []);
 
+    return (
+        <Slider ref={sliderRef} {...settings} className="py-2">
+            {logos.map((logo, index) => (
+                <div key={index} className="flex items-center justify-center px-3 py-3">
+                    <div className="w-auto h-28 border rounded-lg bg-white flex items-center justify-center shadow-sm hover:shadow-md transition">
+                        <img
+                            className="slick-img max-h-18 max-w-[80%] object-contain"
+                            src={logo}
+                            alt={`Logo ${index + 1}`}
+                            draggable={false}
+                        />
+                    </div>
+                </div>
+            ))}
+        </Slider>
     );
 };
 

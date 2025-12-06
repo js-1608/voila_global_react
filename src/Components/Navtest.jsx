@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -119,7 +120,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="/" className="flex items-center group">
+              <Link to="/" className="flex items-center group">
                 <div className="relative">
                   <img
                     src="/logo.png"
@@ -128,7 +129,7 @@ const Navbar = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/10 to-purple-600/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></div>
                 </div>
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}
@@ -154,12 +155,12 @@ const Navbar = () => {
                       />
                     </button>
                   ) : (
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className="px-4 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   )}
 
                   {/* Mega Dropdown for Verticals */}
@@ -169,9 +170,10 @@ const Navbar = () => {
                         <div className="p-8">
                           <div className="grid grid-cols-4 gap-6">
                             {item.items.map((col, i) => (
-                              <a
+                              <Link
                                 key={col.title}
-                                href={col.href}
+                                to={col.href}
+                                target='_blank'
                                 className="group relative flex flex-col items-center text-center p-6 rounded-xl hover:bg-gradient-to-br hover:from-purple-50 hover:to-pink-50 transition-all duration-300 border border-transparent hover:border-purple-100"
                                 style={{ animationDelay: `${i * 50}ms` }}
                               >
@@ -192,7 +194,7 @@ const Navbar = () => {
                                   {col.desc}
                                 </p>
                                 <ArrowRight className="w-4 h-4 text-purple-600 opacity-0 group-hover:opacity-100 mt-2 transition-all duration-300 transform group-hover:translate-x-1" />
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         </div>
@@ -215,13 +217,13 @@ const Navbar = () => {
                                 <ul className="space-y-2 flex-1">
                                   {g.children.map((s) => (
                                     <li key={s.name}>
-                                      <a
-                                        href={s.href}
+                                      <Link
+                                        to={s.href}
                                         className="flex items-center gap-2 px-3 py-2.5 text-sm text-gray-700 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-all duration-200 group"
                                       >
                                         <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-purple-600 transition-colors"></span>
                                         {s.name}
-                                      </a>
+                                      </Link>
                                     </li>
                                   ))}
                                 </ul>
@@ -239,8 +241,8 @@ const Navbar = () => {
 
             {/* CTA Button */}
             <div className="hidden xl:flex items-center">
-              <a
-                href="/contact-us"
+              <Link
+                to="/contact-us"
                 className="group relative px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-900 via-55% to-pink-600 text-white text-sm font-medium shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40 transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-2">
@@ -248,7 +250,7 @@ const Navbar = () => {
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -277,9 +279,9 @@ const Navbar = () => {
         <div className="h-full flex flex-col">
           {/* Mobile Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-100">
-            <a href="/" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
               <img src="/logo.png" alt="logo" className="h-10" />
-            </a>
+            </Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="p-2 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors"
@@ -310,14 +312,14 @@ const Navbar = () => {
                         <div className="mt-2 ml-4 space-y-1 border-l-2 border-purple-200 pl-4">
                           {item.isFullWidth ? (
                             item.items.map((col) => (
-                              <a
+                              <Link
                                 key={col.title}
-                                href={col.href}
+                                to={col.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="block py-2 px-3 text-sm text-gray-600 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
                               >
                                 {col.caption}
-                              </a>
+                              </Link>
                             ))
                           ) : (
                             item.items.map((g, gi) => (
@@ -326,14 +328,14 @@ const Navbar = () => {
                                   {g.group}
                                 </h4>
                                 {g.children.map((s) => (
-                                  <a
+                                  <Link
                                     key={s.name}
-                                    href={s.href}
+                                    to={s.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     className="block py-2 px-3 text-sm text-gray-600 hover:text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
                                   >
                                     {s.name}
-                                  </a>
+                                  </Link>
                                 ))}
                               </div>
                             ))
@@ -342,13 +344,13 @@ const Navbar = () => {
                       )}
                     </div>
                   ) : (
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="block px-4 py-3 text-gray-700 font-medium hover:bg-gray-50 rounded-xl transition-colors"
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   )}
                 </li>
               ))}

@@ -26,6 +26,7 @@ const Footer = () => {
             </div>
 
             <div className="flex-1 text-right">
+                   <p className="text-white">Address</p>
               <p className="text-purple-200 text-sm leading-relaxed">
                 Unit 1007-1008A, WellDone TechPark,
                 Sector 48, Gurugram, Haryana-122018, India
@@ -192,6 +193,7 @@ const Footer = () => {
               <h3 className="text-xl font-semibold mb-6">Contact</h3>
               <div className="space-y-4">
                 <div>
+                   <p className="text-white">Address</p>
                   <p className="text-purple-200 text-sm mb-2">Unit 1007-1008A, WellDone TechPark, Sector 48, Gurugram, Haryana-122018, India</p>
                 </div>
 

@@ -23,6 +23,7 @@ import RefundCancellationPolicy from './Pages/Cancellation';
 import ScrollToTop from './Components/ScrollToTop';
 import NextSaaSHeader from './Components/Navtest';
 import WalmartOnboardingPage from './Pages/Walmart';
+import VoilaStudioPage from './Pages/Studio';
 
 function App() {
   useEffect(() => {
@@ -51,6 +52,7 @@ function App() {
         <Route path="/account-management" element={<AccountManagement />} />
         <Route path="/ecommerce-photoshoots" element={<EcommercePhotoshoots />} />
         <Route path="/walmart-onboarding" element={<WalmartOnboardingPage />} />
+        <Route path="/ecommerce-studio" element={<VoilaStudioPage />} />
 
         {/* pages */}
         <Route path="/partners" element={<PartnersPage />} />

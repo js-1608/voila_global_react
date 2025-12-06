@@ -138,14 +138,19 @@ const Global = () => {
                                     Needs to Grow
                                 </h1>
 
-
-
                                 <div className="flex flex-wrap gap-4">
-                                    <Button_Gradient text={"Explore Our Services"} link={"/"} />
-                                    <button className="bg-black text-white px-6 py-3 rounded-md  flex items-center gap-2 transition-all duration-300 text-sm font-medium ">
-                                        <Phone className="w-4 h-4" />
-                                        Book Free Call With Us
-                                    </button>
+                                    <Button_Gradient text={"Explore Our Partners"} link={"/partners"} />
+                                    <a
+                                        href="https://wa.me/919810554548?text=Hi%20I%20Need%20ecommerce%20support"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <button className="bg-black text-white px-6 py-3 rounded-md flex items-center gap-2 transition-all duration-300 text-sm font-medium">
+                                            <Phone className="w-4 h-6" />
+                                            Book Free Call With Us
+                                        </button>
+                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -289,11 +294,14 @@ const Global = () => {
                     </div>
                     <div className="flex flex-wrap gap-4">
 
-                        <Button_Gradient text={"Explore Our Services"} link={"/"} />
-                        {/* <button className="border border-[#662D91] text-[#662D91] px-6 py-3 rounded-md  flex items-center gap-2 transition-all duration-300 text-sm font-medium ">
-                            <Phone className="w-4 h-4" />
-                            Book Free Call With Us
-                        </button> */}
+                        {/* <Button_Gradient text={"Explore Our Services"} link={"/"} /> */}
+                        <a href="tel:+919810554548">
+                            <button className="border border-[#662D91] text-[#662D91] px-6 py-3 rounded-md flex items-center gap-2 transition-all duration-300 text-sm font-medium">
+                                <Phone className="w-4 h-4" />
+                                Book Free Call With Us
+                            </button>
+                        </a>
+
                     </div>
                 </div>
 
